@@ -18,7 +18,6 @@
       "erasableSyntaxOnly": true,
       "noFallthroughCasesInSwitch": true,
       "noUncheckedSideEffectImports": true,
-
       "paths": {
          "@app/*": ["./src/app/*"],
          "@pages/*": ["./src/pages/*"],
@@ -28,7 +27,7 @@
 
          "@shared/*": ["./src/shared/*"],
          "@api/*": ["./src/shared/api/*"],
-         "@config/*": ["./src/shared/config*"],
+         "@config/*": ["./src/shared/config/*"],
          "@hooks/*": ["./src/shared/hooks/*"],
 
          "@assets/*": ["./src/shared/assets/*"],
