@@ -1,0 +1,25 @@
+:root {
+   // base variables
+   --base-color: var(--black-100);
+   --base-font-family: var(--font-ibm-plex);
+   --base-font-size: rem(16);
+
+   // layers
+   --layer-top-header: 1000;
+   --layer-top: 950;
+
+   // fonts
+   --font-krona-one: 'Krona One', sans-serif;
+   --font-ibm-plex: 'IBM Plex Sans', sans-serif;
+
+   // colors
+   --black-100: #010000;
+   --black-64: rgb(1 0 0 / 64%);
+   --white: #fffdfe;
+   --accent: #f79e0c;
+   --red: #c3440f;
+
+   // numbers
+   --section-offset: 0.75rem;
+   --col-gap: 0.5rem;
+}

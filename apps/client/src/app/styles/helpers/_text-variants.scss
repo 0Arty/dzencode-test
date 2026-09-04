@@ -1,0 +1,76 @@
+@use './media' as *;
+@use './functions' as *;
+
+@mixin h1 {
+   font-family: var(--font-krona-one);
+   font-size: 5rem;
+   font-weight: 400;
+   line-height: 110%; /* 5.5rem */
+   letter-spacing: -0.2rem;
+   font-style: normal;
+
+   @include mobile {
+      /* h1-mob */
+      font-size: 2rem;
+      letter-spacing: -0.2rem;
+   }
+}
+
+@mixin h2 {
+   font-family: var(--font-krona-one);
+   font-size: 3.5625rem;
+   font-weight: 400;
+   line-height: 120%; /* 4.275rem */
+   letter-spacing: -0.3562rem;
+   font-style: normal;
+
+   @include mobile {
+      font-size: 1.5rem;
+   }
+}
+
+@mixin h3 {
+   font-family: var(--font-krona-one);
+   font-size: 1.3125rem;
+   font-weight: 400;
+   line-height: 120%; /* 1.575rem */
+   letter-spacing: -0.0919rem;
+   font-style: normal;
+}
+
+@mixin h4 {
+   font-family: var(--font-krona-one);
+   font-size: 0.875rem;
+   font-weight: 400;
+   line-height: 120%; /* 1.05rem */
+   letter-spacing: -0.0613rem;
+   font-style: normal;
+}
+
+@mixin body-l {
+   /* body-l */
+   font-family: var(--font-ibm-plex);
+   font-size: 1.125rem;
+   font-weight: 400;
+   line-height: 110%; /* 1.2375rem */
+   letter-spacing: -0.045rem;
+   font-style: normal;
+}
+
+@mixin body-m {
+   font-family: var(--font-ibm-plex);
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 110%; /* 1.1rem */
+   letter-spacing: -0.04rem;
+   font-style: normal;
+}
+
+@mixin body-s {
+   font-family: var(--font-ibm-plex);
+   font-size: rem(12);
+   font-weight: 400;
+   line-height: 110%; /* 1.1rem */
+   letter-spacing: -0.04rem;
+   font-style: normal;
+}

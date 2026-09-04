@@ -1,0 +1,39 @@
+@use '@styles/helpers' as *;
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+   transition-duration: var(--transition-duration);
+}
+
+body {
+   display: flex;
+   flex-direction: column;
+   min-height: 100dvh;
+   color: var(--base-color);
+   font-family: var(--base-font-family);
+   font-size: var(--base-font-size);
+
+   main,
+   #root {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+   }
+}
+
+a {
+   color: inherit;
+
+   &[class] {
+      text-decoration: none;
+   }
+}
+
+body {
+   background-color: var(--white);
+}

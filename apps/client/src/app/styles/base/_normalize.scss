@@ -1,0 +1,114 @@
+@use '@styles/helpers' as *;
+
+*,
+::before,
+::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:where(ul, ol):where([class]) {
+   padding-left: 0;
+}
+
+:where(ul[class]) {
+   list-style: none;
+}
+
+:where(address[class]) {
+   font-style: normal;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+   margin-block: 0;
+}
+
+html {
+   height: 100dvh;
+}
+
+html,
+:has(:target) {
+   scroll-behavior: smooth;
+}
+
+html {
+   @media screen and (width <= rem(768)) {
+      scroll-behavior: auto;
+   }
+}
+
+p {
+   margin-block: 0;
+}
+
+p:where(:not([class], :last-child)) {
+   // базовий відступ знизу для параграфу, який не має класу і не є останнім
+   //   margin-bottom: var(--paragraphMarginBottom);
+}
+
+img,
+video {
+   display: block;
+   max-width: 100%;
+   height: auto;
+   max-height: 100%;
+}
+
+img {
+   object-fit: scale-down;
+}
+
+input,
+textarea,
+select,
+button {
+   border: none;
+   font: inherit;
+   cursor: pointer;
+   outline: none;
+}
+
+button {
+   border: none;
+   background-color: transparent;
+   outline: none;
+}
+
+button,
+label {
+   cursor: pointer;
+}
+
+svg * {
+   transition-property: fill, stroke;
+}
+
+button {
+   border: none;
+   background-color: transparent;
+   outline: none;
+}
+
+// відключаємо анімації, для людей які їх не бажають
+@media (prefers-reduced-motion: reduce) {
+   *,
+   ::before,
+   ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+   }
+}
+
+body,
+html {
+   scroll-behavior: auto;
+
+   @media screen and (width <= 768px) {
+      -webkit-overflow-scrolling: auto !important;
+      overscroll-behavior: none;
+   }
+}

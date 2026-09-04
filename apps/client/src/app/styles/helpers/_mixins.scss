@@ -1,0 +1,41 @@
+@use './media' as *;
+@use './functions' as *;
+
+@mixin wrapper($width: rem(1440)) {
+   $padding: rem(12);
+
+   width: 100%;
+   max-width: $width;
+   margin-inline: auto;
+
+   $breakpoint: calc($width + ($padding * 2));
+
+   @media screen and (max-width: $breakpoint) {
+      width: calc(100% - ($padding * 2));
+   }
+}
+
+@mixin animation-on-hover {
+   @media (hover: hover) {
+      &:hover {
+         cursor: pointer;
+         @content;
+      }
+   }
+
+   &:focus-visible {
+      @content;
+   }
+}
+
+@mixin hide-scrollbar {
+   &::-webkit-scrollbar {
+      display: none;
+   }
+
+   // Для Firefox
+   scrollbar-width: none;
+
+   // Для IE та старих версій Edge
+   -ms-overflow-style: none;
+}
