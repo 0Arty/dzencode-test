@@ -10,15 +10,7 @@
       "sourceMap": true,
       "paths": {
          "@mono/types": ["../../shared/index.ts"]
-      },
-      // 1. ВИДАЛИ АБО ЗАКОМЕНТУЙ ЦЕЙ РЯДОК:
-      // "rootDir": "src",
-
-      // 2. ДОДАЙ ЦЕЙ БЛОК ЗАМІСТЬ НЬОГО:
-      "rootDirs": ["src", "../../shared"]
+      }
    },
-   "include": [
-      "src/**/*",
-      "../../shared/**/*" // 3. ОБОВ'ЯЗКОВО додай файли shared в include
-   ]
+   "include": ["src/**/*"]
 }
