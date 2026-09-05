@@ -9,9 +9,6 @@ import './ProductsList.scss'
 
 export const ProductsList = () => {
    const { data, isLoading, isError } = useProducts()
-   useEffect(() => {
-      console.log(data)
-   }, [data])
 
    if (isLoading) {
       return <h2>Loading...</h2>
@@ -23,15 +20,13 @@ export const ProductsList = () => {
 
    return (
       <div className="products-list">
-         <div className="products-list">
-            {!!data &&
-               data.items.map((product: Product) => (
-                  <div key={product.id}>
-                     <h2>{product.title}</h2>
-                  </div>
-                  //    <ProductCard key={product.id} data={product} />
-               ))}
-         </div>
+         {!!data &&
+            data.items.map((product: Product) => (
+               <div key={product.id}>
+                  <h2>{product.title}</h2>
+               </div>
+               //    <ProductCard key={product.id} data={product} />
+            ))}
       </div>
    )
 }
