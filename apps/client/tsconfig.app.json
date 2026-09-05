@@ -37,7 +37,7 @@
          "@styles/*": ["./src/app/styles/*"],
          "@/*": ["./src/*"],
 
-         "@mono/types": ["../../shared/index.ts"]
+         "@mono/types": ["../../packages/shared/dist/index.ts"]
       }
    },
    "include": ["src"]

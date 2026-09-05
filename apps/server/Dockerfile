@@ -3,31 +3,33 @@ FROM node:20-alpine AS build
 WORKDIR /app
 
 COPY package*.json ./
-COPY shared/package*.json ./shared/
+COPY packages/shared/package*.json ./packages/shared/
 COPY apps/server/package*.json ./apps/server/
 
-RUN npm ci -w apps/server -w shared
+RUN npm ci -w apps/server -w packages/shared
 
-COPY shared ./shared
+COPY packages/shared ./packages/shared
 COPY apps/server ./apps/server
 
-WORKDIR /app/apps/server
-RUN npm run build
+# спочатку білдимо shared — сервер залежить від його dist
+RUN npm run build -w packages/shared
+RUN npm run build -w apps/server
 
 # --- Production stage ---
 FROM node:20-alpine AS production
 WORKDIR /app
 
 COPY package*.json ./
-COPY shared/package*.json ./shared/
+COPY packages/shared/package*.json ./packages/shared/
 COPY apps/server/package*.json ./apps/server/
 
-RUN npm ci --omit=dev -w apps/server -w shared
+RUN npm ci --omit=dev -w apps/server -w packages/shared
 
-COPY --from=build /app/apps/server /app/apps/server
-COPY --from=build /app/shared /app/shared
+# з build-стейджа тягнемо тільки готові артефакти
+COPY --from=build /app/apps/server/dist /app/apps/server/dist
+COPY --from=build /app/packages/shared/dist /app/packages/shared/dist
 
 WORKDIR /app/apps/server
 
-EXPOSE 3000
+EXPOSE 8000
 CMD ["npm", "run", "start:prod"]

@@ -26,8 +26,9 @@ export default defineConfig({
       },
    },
    server: {
+      host: true,
+      open: !process.env.DOCKER,
       port: parseInt(process.env.CLIENT_PORT || '5173', 10),
-      open: true,
    },
    build: {
       outDir: 'dist',

@@ -2,16 +2,17 @@ FROM node:20-alpine
 WORKDIR /app
 
 COPY package*.json ./
-
-COPY shared/package*.json ./shared/
+COPY packages/shared/package*.json ./packages/shared/
 COPY apps/client/package*.json ./apps/client/
 
-RUN npm ci -w apps/client -w shared
+RUN npm ci -w apps/client -w packages/shared
 
-COPY shared ./shared
+COPY packages/shared ./packages/shared
 COPY apps/client ./apps/client
 
-EXPOSE 5173
+# vite резолвить @mono/types через його dist, тож білдимо один раз
+RUN npm run build -w packages/shared
 
-# 5. Запускаємо dev-сервер
-CMD ["npm", "run", "dev:container", "-w", "apps/client", "--", "--host"]
+EXPOSE 5173
+ENV DOCKER=true
+CMD ["npm", "run", "dev:container", "-w", "apps/client"]

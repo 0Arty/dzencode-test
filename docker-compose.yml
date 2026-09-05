@@ -36,7 +36,7 @@ services:
       env_file:
          - .env
       ports:
-         - '${CLIENT_PORT:-3000}:3000'
+         - '${CLIENT_PORT:-5173}:5173'
       depends_on:
          - server
 
