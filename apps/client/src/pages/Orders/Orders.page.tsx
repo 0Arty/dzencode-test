@@ -1,9 +1,9 @@
 import { Hero } from './sections/Hero'
 
-export const HomePage = () => {
+export const OrdersPage = () => {
    return (
-      <div>
+      <>
          <Hero />
-      </div>
+      </>
    )
 }

@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Product } from '../../product/entity'
 
-import { CurrencySymbol } from '@mono/types'
+import { CurrencySymbol } from '@types'
 
 @Entity('product_prices')
 export class ProductPrice {

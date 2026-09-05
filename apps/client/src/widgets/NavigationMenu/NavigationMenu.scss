@@ -1,0 +1,86 @@
+@import 'bootstrap/scss/bootstrap';
+
+.navigation-menu {
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+   gap: 1rem;
+   width: fit-content;
+   min-width: rem(280);
+   max-height: 100dvh;
+   overflow: auto;
+   background-color: #fff;
+   padding-inline: 1rem;
+   overscroll-behavior: content;
+
+   @include hide-scrollbar;
+
+   @include mobile {
+      width: 100%;
+      min-width: 0;
+   }
+
+   &--header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      background: white;
+      box-shadow: 4px 4px 8px white;
+   }
+
+   .nav-list {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 2rem 0;
+
+      &--link {
+         position: relative;
+         width: fit-content;
+         color: var(--black);
+         font-size: 1.25rem;
+         font-weight: 600;
+         line-height: 120%;
+         transition: 0.3s ease-in-out color;
+         text-wrap: nowrap;
+
+         &::after {
+            position: absolute;
+            right: 0;
+            bottom: -0.25rem;
+            left: unset;
+            width: 0%;
+            height: 0.125rem;
+            background-color: var(--green);
+            transition: 0.2s ease-out width;
+            content: '';
+         }
+
+         &.active {
+            &::after {
+               width: 100% !important;
+            }
+         }
+
+         @include animation-on-hover {
+            &:not(.active) {
+               color: var(--light-green);
+
+               &::after {
+                  right: unset;
+                  left: 0;
+                  width: 100%;
+               }
+            }
+         }
+      }
+   }
+}

@@ -9,7 +9,7 @@ import {
 } from 'typeorm'
 import { Order } from '../../order/entity'
 import { ProductPrice } from '../../price/entity'
-import { ProductType } from '@mono/types'
+import { ProductType } from '@types'
 
 @Entity('products')
 export class Product {

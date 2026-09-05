@@ -1,5 +1,5 @@
 import { IsEnum, IsNumber, IsOptional, IsBoolean } from 'class-validator'
-import { CurrencySymbol } from '@mono/types'
+import { CurrencySymbol } from '@types'
 
 export class CreatePriceDto {
    @IsNumber()

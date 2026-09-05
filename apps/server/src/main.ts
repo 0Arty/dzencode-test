@@ -13,7 +13,7 @@ async function start() {
          transformOptions: { enableImplicitConversion: true },
       }),
    )
-
+   app.enableCors()
    await app.listen(PORT, () => {
       console.log(`Server is started on port ${PORT}`)
    })

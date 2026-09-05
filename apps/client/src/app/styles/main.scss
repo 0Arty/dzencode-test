@@ -1,1 +1,10 @@
 @use '@styles/base';
+
+@use 'bootstrap/scss/bootstrap' with (
+   $primary: #0d6efd,
+   $body-bg: #f5f7fb,
+   $font-family-base: (
+      'Roboto',
+      sans-serif,
+   )
+);

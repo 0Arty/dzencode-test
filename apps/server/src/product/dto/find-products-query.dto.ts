@@ -1,7 +1,7 @@
 // dto/find-products-query.dto.ts
 import { Type } from 'class-transformer'
 import { IsEnum, IsInt, IsOptional, Min } from 'class-validator'
-import { ProductType } from '@mono/types'
+import { ProductType } from '@types'
 
 export class FindProductsQueryDto {
    @IsOptional()

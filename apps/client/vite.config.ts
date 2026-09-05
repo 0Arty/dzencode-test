@@ -22,6 +22,15 @@ export default defineConfig({
       preprocessorOptions: {
          scss: {
             additionalData: `@use "@styles/helpers/_index.scss" as *;`,
+            quietDeps: true, // Глушить усі попередження з node_modules
+            silenceDeprecations: [
+               'import',
+               'color-functions',
+               'global-builtin',
+               'if-function',
+               'slash-div',
+               'abs-percent',
+            ],
          },
       },
    },

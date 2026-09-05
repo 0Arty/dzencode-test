@@ -66,7 +66,9 @@ export default tseslint.config(
          '@typescript-eslint/no-explicit-any': 'warn',
          '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: { attributes: false } }],
          '@typescript-eslint/no-floating-promises': 'warn',
-
+         '@typescript-eslint/no-unsafe-call': 'off',
+         '@typescript-eslint/no-unsafe-member-access': 'off',
+         '@typescript-eslint/no-unsafe-assignment': 'off',
          'no-console': 'warn',
          eqeqeq: ['error', 'always'],
          'no-var': 'error',

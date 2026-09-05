@@ -9,7 +9,7 @@ import {
    ValidateNested,
    ArrayMinSize,
 } from 'class-validator'
-import { ProductType } from '@mono/types'
+import { ProductType } from '@types'
 import { CreateProductPriceDto } from '../../order/dto/create-product-price.dto'
 
 export class CreateProductDto {

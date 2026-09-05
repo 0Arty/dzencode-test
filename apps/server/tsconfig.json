@@ -11,7 +11,7 @@
       "outDir": "./dist",
       "rootDir": "./src",
       "paths": {
-         "@mono/types": ["../../shared/index.ts"]
+         "@types": ["./src/types/"]
       }
    },
    "include": ["src/**/*"]

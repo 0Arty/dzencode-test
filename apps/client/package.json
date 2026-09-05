@@ -14,17 +14,20 @@
       "deploy": "gh-pages -d dist"
    },
    "dependencies": {
+      "@gsap/react": "^2.1.2",
       "@hookform/resolvers": "^5.4.0",
+      "@mono/types": "*",
       "@tanstack/react-query": "^5.101.2",
       "axios": "^1.19.0",
+      "bootstrap": "^5.3.8",
+      "gsap": "^3.15.0",
       "react": "^19.1.0",
       "react-dom": "^19.1.0",
       "react-hook-form": "^7.82.0",
       "react-router-dom": "^7.11.0",
       "swiper": "^14.0.6",
       "vite-plugin-svgr": "^5.2.0",
-      "zod": "^4.4.3",
-      "@mono/types": "*"
+      "zod": "^4.4.3"
    },
    "devDependencies": {
       "@eslint/js": "^9.30.1",

@@ -1,8 +1,9 @@
 // libs
+import { ROUTES } from '@app/routers/config/routes'
 import { NotFoundPage } from '@pages/NotFound'
+import { OrdersPage } from '@pages/Orders/Orders.page'
+import { ProductsPage } from '@pages/Products'
 import { createBrowserRouter } from 'react-router-dom'
-
-import { HomePage } from '@/pages/Home'
 
 // components
 import { BaseLayout } from '../layouts/BaseLayout'
@@ -15,7 +16,16 @@ export const appRouter = createBrowserRouter(
          children: [
             {
                index: true,
-               element: <HomePage />,
+               element: <ProductsPage />,
+            },
+
+            {
+               path: ROUTES.PRODUCTS,
+               element: <ProductsPage />,
+            },
+            {
+               path: ROUTES.ORDERS,
+               element: <OrdersPage />,
             },
 
             {
