@@ -22,10 +22,10 @@
       "docker:set-backup": "cat backup.sql | docker exec -i nest-postgres psql -U postgres -d cars"
    },
    "dependencies": {
-      "@mono/types": "*",
       "@nestjs/common": "^11.0.1",
       "@nestjs/config": "^4.0.4",
       "@nestjs/core": "^11.0.1",
+      "@nestjs/mapped-types": "^12.0.0",
       "@nestjs/platform-express": "^11.0.1",
       "@nestjs/typeorm": "^11.0.3",
       "class-transformer": "^0.5.1",
@@ -41,7 +41,6 @@
       "@eslint/eslintrc": "^3.2.0",
       "@eslint/js": "^9.18.0",
       "@nestjs/cli": "^11.0.0",
-      "@nestjs/mapped-types": "^12.0.0",
       "@nestjs/schematics": "^11.0.0",
       "@nestjs/testing": "^11.0.1",
       "@types/express": "^5.0.0",

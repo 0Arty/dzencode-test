@@ -37,9 +37,7 @@
          "@icons/*": ["./src/shared/assets/icons/*"],
 
          "@styles/*": ["./src/app/styles/*"],
-         "@/*": ["./src/*"],
-
-         "@mono/types": ["../../packages/shared/dist/index.ts"]
+         "@/*": ["./src/*"]
       }
    },
    "include": ["src"]

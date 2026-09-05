@@ -1,6 +1,6 @@
 # test
 
-Монорепозиторій: `apps/server` (NestJS), `apps/client` (Vite), `packages/shared` (спільні типи).
+Монорепозиторій: `apps/server` (NestJS), `apps/client` (Vite)
 
 ## 1. Встановити залежності
 
@@ -14,37 +14,23 @@ npm install
 docker compose up --build
 ```
 
-Піднімає одразу: Postgres, сервер і клієнт. Збірка `packages/shared` відбувається автоматично всередині Docker-образів — нічого руками робити не треба.
+Піднімає одразу: Postgres, сервер і клієнт.
 
 - Client: http://localhost:5173
 - Server (API): http://localhost:8000
 
 ## 3. Локальний запуск (без Docker)
 
-Оскільки `apps/server` і `apps/client` імпортують `@mono/types` як зібраний пакет (`packages/shared/dist`), перед першим запуском і після кожної зміни типів його треба збудувати:
-
-```bash
-npm run build -w packages/shared
-```
-
-Або тримати у watch-режимі окремим терміналом, щоб зміни підхоплювались автоматично:
-
-```bash
-npm run dev -w packages/shared
-```
-
-Далі, у **двох інших** терміналах:
-
 ### Сервер (NestJS)
 
 ```bash
-npm run start:dev -w apps/server
+npm run dev:server
 ```
 
 ### Клієнт (Vite)
 
 ```bash
-npm run dev -w apps/client
+npm run dev:client
 ```
 
 > Для локального запуску потрібен також запущений Postgres (наприклад, `docker compose up postgres`) та заповнений `.env` у корені репозиторію.
@@ -62,6 +48,5 @@ npm run dev -w apps/client
 apps/
   server/   — NestJS API
   client/   — Vite frontend
-packages/
-  shared/   — спільні TypeScript типи (@mono/types)
+
 ```

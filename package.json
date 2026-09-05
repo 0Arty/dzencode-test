@@ -2,8 +2,7 @@
    "name": "monorepo",
    "private": true,
    "workspaces": [
-      "apps/*",
-      "packages/*"
+      "apps/*"
    ],
    "scripts": {
       "dev:shared": "npm run dev -w packages/shared",

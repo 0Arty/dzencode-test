@@ -16,7 +16,6 @@
    "dependencies": {
       "@gsap/react": "^2.1.2",
       "@hookform/resolvers": "^5.4.0",
-      "@mono/types": "*",
       "@tanstack/react-query": "^5.101.2",
       "axios": "^1.19.0",
       "bootstrap": "^5.3.8",
