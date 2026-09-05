@@ -7,7 +7,12 @@ async function start() {
 
    const app = await NestFactory.create(AppModule)
 
-   app.useGlobalPipes(new ValidationPipe())
+   app.useGlobalPipes(
+      new ValidationPipe({
+         transform: true,
+         transformOptions: { enableImplicitConversion: true },
+      }),
+   )
 
    await app.listen(PORT, () => {
       console.log(`Server is started on port ${PORT}`)

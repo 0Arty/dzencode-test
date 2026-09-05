@@ -14,7 +14,6 @@ export class ProductPrice {
    @Column({ type: 'enum', enum: CurrencySymbol })
    symbol!: CurrencySymbol
 
-   // true, якщо саме цю валюту показувати за замовчуванням у UI
    @Column({ default: false })
    isDefault!: boolean
 

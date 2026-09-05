@@ -15,17 +15,9 @@ export class Order {
    @Column()
    title!: string
 
-   // Дата створення приходу (з ТЗ). Якщо треба лише "автоматично при вставці" -
-   // заміни на @CreateDateColumn і прибери @Column.
-   @Column({ type: 'timestamp' })
-   date!: Date
-
    @Column({ type: 'text', nullable: true })
-   description!: string
+   description!: string | null
 
-   // У ТЗ products - геттер, що повертає ВСІ продукти (баг у моковому файлі).
-   // У реальній БД зв'язок Order -> Products має бути "один до багатьох",
-   // де кожен продукт належить конкретному приходу через order_id (FK).
    @OneToMany(() => Product, (product) => product.order, {
       cascade: true,
    })

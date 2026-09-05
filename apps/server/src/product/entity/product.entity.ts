@@ -17,47 +17,29 @@ export class Product {
    id!: number
 
    @Column()
-   serialNumber!: number
-
-   // isNew у ТЗ приходить як 1/0 - зручніше зберігати як boolean
-   @Column({ default: true })
-   isNew!: boolean
-
-   @Column({ nullable: true })
-   photo!: string
-
-   @Column()
    title!: string
 
    @Column({ type: 'enum', enum: ProductType })
    type!: ProductType
 
-   @Column({ type: 'text', nullable: true })
-   specification!: string
+   @Column({ type: 'timestamp' })
+   guarantee_start!: Date
 
-   // Embedded-колонки: guarantee_start, guarantee_end
-   @Column()
-   guarantee_start!: string
+   @Column({ type: 'timestamp' })
+   guarantee_end!: Date
 
-   @Column()
-   guarantee_end!: string
-
-   // Один продукт - декілька цін (USD, UAH і т.д.)
    @OneToMany(() => ProductPrice, (price) => price.product, {
       cascade: true,
-      eager: true, // ціни підтягуються разом з продуктом автоматично
+      eager: true,
    })
    prices!: ProductPrice[]
 
-   // FK на приход, якому належить продукт
    @ManyToOne(() => Order, (order) => order.products, {
-      onDelete: 'CASCADE',
+      onDelete: 'SET NULL',
+      nullable: true,
    })
    @JoinColumn({ name: 'order_id' })
-   order!: Order
-
-   @Column({ type: 'timestamp' })
-   date!: Date
+   order!: Order | null
 
    @CreateDateColumn()
    createdAt!: Date
