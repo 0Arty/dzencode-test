@@ -1,5 +1,45 @@
 .order-card {
-   display: flex;
-   align-items: center;
+   display: grid;
+   grid-template-columns: 6fr 2fr 2fr 1fr 1fr;
    width: 100%;
+   padding: 1rem 2rem;
+   border-radius: 1rem;
+   background-color: white;
+
+   &--count {
+      display: flex;
+      gap: 0.25rem;
+   }
+
+   &--count {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+   }
+
+   .open-details-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid rgb(0 0 0 / 32%);
+      border-radius: 100%;
+      transition: 0.3s ease-in-out border-color;
+
+      svg {
+         width: rem(24);
+         color: rgb(0 0 0 / 32%);
+         transition: 0.3s ease-in-out color;
+      }
+
+      @include animation-on-hover {
+         svg {
+            color: var(--green);
+         }
+
+         border-color: var(--green);
+      }
+   }
 }

@@ -1,4 +1,4 @@
-import type { CurrencySymbol, ProductType } from '@shared/types'
+import type { CurrencySymbol, ProductType, Sums } from '@shared/types'
 
 export interface ProductPrice {
    id: number
@@ -26,6 +26,8 @@ export interface Order {
    description: string | null
    products: Product[]
    createdAt: Date
+   productsCount: number
+   sums: Sums
 }
 
 export interface PaginatedResponse<T> {

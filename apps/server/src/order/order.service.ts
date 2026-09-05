@@ -76,6 +76,7 @@ export class OrdersService {
          title: order.title,
          createdAt: order.createdAt,
          productsCount: order.products.length,
+         products: order.products,
          sums,
       }
    }
