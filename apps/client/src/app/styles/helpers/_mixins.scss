@@ -39,3 +39,9 @@
    // Для IE та старих версій Edge
    -ms-overflow-style: none;
 }
+
+@mixin tablet-base-layout {
+   @media screen and (width <= rem(1024)) {
+      @content;
+   }
+}

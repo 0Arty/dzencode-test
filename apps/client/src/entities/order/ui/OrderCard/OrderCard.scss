@@ -1,5 +1,6 @@
 .order-card {
    display: grid;
+   gap: 1rem;
    grid-template-columns: 6fr 2fr 2fr 1fr 1fr;
    width: 100%;
    padding: 1rem 2rem;
@@ -8,38 +9,66 @@
 
    &--count {
       display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .open-details-btn {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         width: 2rem;
+         height: 2rem;
+         border: 1px solid rgb(0 0 0 / 32%);
+         border-radius: 100%;
+         transition: 0.3s ease-in-out border-color;
+
+         svg {
+            width: rem(24);
+            color: rgb(0 0 0 / 32%);
+            transition: 0.3s ease-in-out color;
+         }
+
+         @include animation-on-hover {
+            svg {
+               color: var(--green);
+            }
+
+            border-color: var(--green);
+         }
+      }
+   }
+
+   &--col {
+      display: flex;
+      flex-direction: column;
       gap: 0.25rem;
    }
 
-   &--count {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-   }
-
-   .open-details-btn {
+   &--remove {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 2rem;
       height: 2rem;
-      border: 1px solid rgb(0 0 0 / 32%);
       border-radius: 100%;
-      transition: 0.3s ease-in-out border-color;
-
-      svg {
-         width: rem(24);
-         color: rgb(0 0 0 / 32%);
-         transition: 0.3s ease-in-out color;
-      }
+      transition: 0.3s ease-in-out background-color;
+      place-self: start end;
 
       @include animation-on-hover {
-         svg {
-            color: var(--green);
-         }
+         background-color: var(--light-green);
 
-         border-color: var(--green);
+         svg {
+            color: white;
+         }
+      }
+
+      svg {
+         width: 1rem;
+         height: 1rem;
+         color: black;
+         transition: 0.3s ease-in-out color;
       }
    }
 }

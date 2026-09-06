@@ -1,6 +1,8 @@
 import List from '@icons/list.svg?react'
+import Trash from '@icons/trash.svg?react'
+import { useFormattedString } from '@shared/hooks'
 import type { Order } from '@shared/types'
-import { FormattedDate } from '@shared/ui/FormattedDate/FormattedDate'
+import { CurencyBadge } from '@shared/ui/CurencyBadge'
 
 import './OrderCard.scss'
 
@@ -9,7 +11,9 @@ interface Props {
 }
 
 export const OrderCard = ({ data }: Props) => {
-   const { title, createdAt, productsCount, sums } = data
+   const { title, createdAt: isoString, productsCount, sums } = data
+
+   const { formatNumeric, formatString } = useFormattedString({ isoString })
 
    if (!data) {
       return null
@@ -24,22 +28,23 @@ export const OrderCard = ({ data }: Props) => {
                <List />
             </button>
 
-            <div className="count-details">
+            <div className="order-card--col count-details">
                <h5 className="count-details--number mb-0">{productsCount}</h5>
                <h6 className="count-details--description mb-0 opacity-50">Products</h6>
             </div>
          </div>
-         <div className="order-card--created-at">
-            <FormattedDate isoString={createdAt} />
+         <div className="order-card--col order-card--created-at">
+            <h6 className="mb-0">{formatNumeric}</h6>
+            <h6 className="mb-0">{formatString}</h6>
          </div>
-         <div className="order-card--price">
+         <div className="order-card--col order-card--price">
             {Object.entries(sums).map(([currency, amount]) => (
-               <span key={currency} className="order-card--sum">
-                  {amount} {currency}
-               </span>
+               <CurencyBadge currency={currency} amount={amount} key={`order-${data.id}-curency-${currency} `} />
             ))}
          </div>
-         <button className="order-card--remove">x</button>
+         <button className="order-card--remove">
+            <Trash />
+         </button>
       </div>
    )
 }

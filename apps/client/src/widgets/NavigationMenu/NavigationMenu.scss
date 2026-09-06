@@ -1,23 +1,49 @@
 @import 'bootstrap/scss/bootstrap';
 
 .navigation-menu {
+   z-index: var(--layer-top-header);
    display: flex;
    flex-direction: column;
    flex-grow: 1;
    gap: 1rem;
    width: fit-content;
-   min-width: rem(280);
    max-height: 100dvh;
    overflow: auto;
    background-color: #fff;
-   padding-inline: 1rem;
+   padding-inline: 2rem;
    overscroll-behavior: content;
 
    @include hide-scrollbar;
 
+   @include tablet-base-layout {
+      position: fixed;
+      height: 100dvh;
+   }
+
    @include mobile {
       width: 100%;
       min-width: 0;
+   }
+
+   &--close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 2rem;
+      height: 2rem;
+
+      @include tablet-base-layout {
+         display: flex;
+      }
+
+      svg {
+         width: rem(24);
+         height: rem(24);
+      }
    }
 
    &--header {
