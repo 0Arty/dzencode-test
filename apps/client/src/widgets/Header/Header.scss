@@ -1,0 +1,19 @@
+.header {
+   position: sticky;
+   display: flex;
+   width: 100%;
+
+   &--modal-handler {
+      display: none;
+
+      @include tablet-base-layout {
+         display: flex;
+      }
+
+      svg {
+         width: rem(24);
+         height: rem(24);
+         color: black;
+      }
+   }
+}

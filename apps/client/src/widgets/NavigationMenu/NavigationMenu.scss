@@ -7,17 +7,23 @@
    flex-grow: 1;
    gap: 1rem;
    width: fit-content;
+   min-width: rem(240);
+
+   @include hide-scrollbar;
+
    max-height: 100dvh;
    overflow: auto;
    background-color: #fff;
    padding-inline: 2rem;
    overscroll-behavior: content;
 
-   @include hide-scrollbar;
-
    @include tablet-base-layout {
       position: fixed;
+      top: 0;
+      left: 0;
       height: 100dvh;
+      will-change: clip-path;
+      clip-path: var(--menu-clip, inset(0 100% 0 0));
    }
 
    @include mobile {
@@ -27,8 +33,8 @@
 
    &--close {
       position: absolute;
-      top: 2rem;
-      right: 2rem;
+      top: 1rem;
+      right: 1rem;
       display: none;
       flex-direction: column;
       justify-content: center;
