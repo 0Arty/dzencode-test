@@ -20,8 +20,8 @@ export const productApi = {
       return data
    },
 
-   create: async (dto: CreateProductDto): Promise<PaginatedResponse<Product>> => {
-      const { data } = await axiosInstance.post<PaginatedResponse<Product>>(BASE_URL, dto)
+   create: async (dto: CreateProductDto): Promise<Product> => {
+      const { data } = await axiosInstance.post<Product>(BASE_URL, dto)
       return data
    },
 
