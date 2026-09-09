@@ -21,6 +21,13 @@ export const useOrder = (id: string) => {
    })
 }
 
+export const useOrdersCount = () => {
+   return useQuery({
+      queryKey: [...QUERY_KEY, 'count'],
+      queryFn: orderApi.getOrdersCount,
+   })
+}
+
 export const useCreateOrder = () => {
    const queryClient = useQueryClient()
    return useMutation({

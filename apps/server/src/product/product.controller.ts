@@ -29,6 +29,11 @@ export class ProductController {
       return this.productService.findAll(query)
    }
 
+   @Get('/total')
+   getProductsTotalCount() {
+      return this.productService.getProductsTotalCount()
+   }
+
    @Get(':id')
    findOne(@Param('id', ParseIntPipe) id: number) {
       return this.productService.findOne(id)

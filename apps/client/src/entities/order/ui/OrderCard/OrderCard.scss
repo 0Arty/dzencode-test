@@ -30,6 +30,7 @@
    }
 
    @include small-screen {
+      gap: 1.5rem 1rem;
       grid-template-columns: 1fr $remove-btn-size;
    }
 
@@ -49,6 +50,11 @@
       display: flex;
       align-items: center;
       gap: 0.25rem;
+
+      @include small-screen {
+         flex-direction: row-reverse;
+         justify-content: space-between;
+      }
 
       .open-details-btn {
          display: flex;
@@ -75,6 +81,12 @@
             border-color: var(--green);
          }
       }
+
+      .count-details {
+         @include small-screen {
+            flex-direction: row;
+         }
+      }
    }
 
    &--col {
@@ -88,6 +100,14 @@
    &--price {
       @include small-screen {
          grid-column: span 2;
+      }
+   }
+
+   &--created-at,
+   &--price {
+      @include small-screen {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
       }
    }
 

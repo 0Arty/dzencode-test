@@ -41,6 +41,11 @@ export class OrdersService {
       }
    }
 
+   async getOrdersCount(): Promise<number> {
+      const total = await this.orderRepo.count()
+      return total
+   }
+
    async findOne(id: number) {
       const order = await this.orderRepo.findOne({
          where: { id },

@@ -16,6 +16,11 @@ export const orderApi = {
       return data
    },
 
+   getOrdersCount: async () => {
+      const { data } = await axiosInstance.get<number>(`${BASE_URL}/total`)
+      return data
+   },
+
    create: async (dto: CreateOrderDto): Promise<PaginatedResponse<Order>> => {
       const { data } = await axiosInstance.post<PaginatedResponse<Order>>(BASE_URL, dto)
       return data

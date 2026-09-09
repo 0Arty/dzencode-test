@@ -22,8 +22,6 @@
       top: 0;
       left: 0;
       height: 100dvh;
-      will-change: clip-path;
-      clip-path: var(--menu-clip, inset(0 100% 0 0));
    }
 
    @include mobile {

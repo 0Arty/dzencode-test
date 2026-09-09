@@ -20,6 +20,13 @@ export const useProduct = (id: string) => {
    })
 }
 
+export const useProductsCount = () => {
+   return useQuery({
+      queryKey: [...QUERY_KEY, 'count'],
+      queryFn: productApi.getProductsCount,
+   })
+}
+
 export const useCreateProduct = () => {
    const queryClient = useQueryClient()
    return useMutation({

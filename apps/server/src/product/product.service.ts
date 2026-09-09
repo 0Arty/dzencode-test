@@ -55,6 +55,11 @@ export class ProductService {
       }
    }
 
+   async getProductsTotalCount(): Promise<number> {
+      const total = await this.orderRepo.count()
+      return total
+   }
+
    async findOne(id: number) {
       const product = await this.productRepo.findOne({
          where: { id },
