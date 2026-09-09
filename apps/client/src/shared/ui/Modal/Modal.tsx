@@ -1,3 +1,4 @@
+import Close from '@icons/close.svg?react'
 import { useClickOutside } from '@shared/hooks'
 import type { ReactNode } from 'react'
 
@@ -17,7 +18,7 @@ export const Modal = ({ children, isOpen, outsideClickCallBack }: Props) => {
 
    return (
       <div className="modal-container" ref={containerRef}>
-         <div className="modal--content" ref={contentRef}>
+         <div className="modal-content" ref={contentRef}>
             {children}
          </div>
       </div>
