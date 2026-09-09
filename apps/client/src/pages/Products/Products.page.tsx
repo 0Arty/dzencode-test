@@ -1,13 +1,17 @@
-import { ProductsList } from '@entities/product'
+import { ProductsList, useProductsCount } from '@entities/product'
+import { CreateProductButton } from '@features/create-product/ui/CreateProductButton/CreateProductButton'
+import { Title } from '@shared/ui/Title'
 
 export const ProductsPage = () => {
-   return (
-      <div className="container-fluid flex-column gap-4">
-         <h1>Products</h1>
+   const { data: count } = useProductsCount()
 
-         <div className=" mt-4">
-            <ProductsList />
+   return (
+      <div className="d-flex flex-column gap-4">
+         <div className="d-flex flex-column gap-2 ">
+            <Title title={'Products'} count={count ?? 0} />
+            <CreateProductButton />
          </div>
+         <ProductsList />
       </div>
    )
 }

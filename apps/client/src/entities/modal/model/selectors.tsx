@@ -1,4 +1,3 @@
-// entities/modal/model/selectors.ts
 import type { RootState } from '@app/store'
 
 import type { ModalKey } from './types'

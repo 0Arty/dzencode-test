@@ -11,8 +11,8 @@ export const productApi = {
       return data
    },
    getProductsCount: async () => {
-      const count = await axiosInstance.get<number>(`${BASE_URL}/total`)
-      return count
+      const { data } = await axiosInstance.get<number>(`${BASE_URL}/total`)
+      return data
    },
 
    getById: async (id: string): Promise<PaginatedResponse<Product>> => {
