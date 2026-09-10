@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '@app/store/hooks'
 import { closeModal } from '@entities/modal'
 import { selectIsModalOpen } from '@entities/modal'
-import { CreateOrderForm } from '@features/create-order/ui/CreateOrderForm/'
+import { CreateOrderForm } from '@features/create-order/'
 import { Modal } from '@shared/ui/Modal'
 import { ModalTitle } from '@shared/ui/ModalTitle'
 

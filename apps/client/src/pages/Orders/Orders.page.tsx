@@ -1,6 +1,6 @@
 import { useOrdersCount } from '@entities/order'
-import { OrdersList } from '@entities/order/ui/OrdersList'
-import { CreateOrderButton } from '@features/create-order/ui/CreateOrderButton'
+import { OrdersList } from '@entities/order/'
+import { CreateOrderButton } from '@features/create-order'
 import { Title } from '@shared/ui/Title'
 
 export const OrdersPage = () => {

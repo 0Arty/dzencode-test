@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 import { ProductCard } from '@entities/product'
 import type { Product } from '@shared/types'
 
