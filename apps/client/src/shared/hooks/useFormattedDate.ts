@@ -17,6 +17,11 @@ export const useFormattedString = ({ isoString }: Props) => {
          year: 'numeric',
       })
 
+      const fullFormatNumeric = date.toLocaleDateString('en-US', {
+         day: '2-digit',
+         month: '2-digit',
+         year: 'numeric',
+      })
       const formatString = date.toLocaleDateString('en-US', {
          day: '2-digit',
          month: 'short',
@@ -24,6 +29,7 @@ export const useFormattedString = ({ isoString }: Props) => {
       })
 
       return {
+         fullFormatNumeric,
          formatNumeric,
          formatString,
       }

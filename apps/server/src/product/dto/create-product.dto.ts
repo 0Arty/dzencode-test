@@ -8,6 +8,7 @@ import {
    IsDateString,
    ValidateNested,
    ArrayMinSize,
+   IsNotEmpty,
 } from 'class-validator'
 import { ProductType } from '@types'
 import { CreateProductPriceDto } from '../../order/dto/create-product-price.dto'
@@ -18,30 +19,35 @@ export class CreateProductDto {
    orderId?: number
 
    @IsNumber()
+   @IsNotEmpty()
    serialNumber!: number
 
-   @IsOptional()
    @IsBoolean()
-   isNew?: boolean
+   @IsNotEmpty()
+   isNew!: boolean
 
    @IsOptional()
    @IsString()
    photo?: string
 
    @IsString()
+   @IsNotEmpty()
    title!: string
 
    @IsEnum(ProductType)
+   @IsNotEmpty()
    type!: ProductType
 
-   @IsOptional()
    @IsString()
-   specification?: string
+   @IsNotEmpty()
+   specification!: string
 
    @IsDateString()
+   @IsNotEmpty()
    guarantee_start!: string
 
    @IsDateString()
+   @IsNotEmpty()
    guarantee_end!: string
 
    @ValidateNested({ each: true })

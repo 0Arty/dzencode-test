@@ -1,8 +1,9 @@
 import { useAppDispatch, useAppSelector } from '@app/store/hooks'
-import { closeModal } from '@entities/modal/model/modalSlice'
-import { selectIsModalOpen } from '@entities/modal/model/selectors'
+import { closeModal } from '@entities/modal'
+import { selectIsModalOpen } from '@entities/modal'
+import { CreateProductForm } from '@features/create-product/ui/CreateProductForm'
 import { Modal } from '@shared/ui/Modal'
-import { ModalTitle } from '@shared/ui/ModalTitle/ModalTitle'
+import { ModalTitle } from '@shared/ui/ModalTitle'
 
 import './CreateProductModal.scss'
 
@@ -19,10 +20,8 @@ export const CreateProductModal = () => {
       <>
          <Modal isOpen={isOpen} outsideClickCallBack={closeModalHandler}>
             <ModalTitle title="Create product" btnHandleFunc={closeModalHandler} />
-            <p>
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse aliquam nisi quo nam officiis dolores ut,
-               asperiores voluptatum quis odit aperiam soluta facilis sit illum ducimus fuga mollitia modi laboriosam?
-            </p>
+
+            <CreateProductForm />
          </Modal>
       </>
    )

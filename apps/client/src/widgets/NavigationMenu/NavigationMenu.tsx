@@ -1,11 +1,12 @@
 import { ROUTES } from '@app/routers/config/routes'
 import { useAppDispatch, useAppSelector } from '@app/store/hooks'
-import { closeModal } from '@entities/modal/model/modalSlice'
-import { selectIsModalOpen } from '@entities/modal/model/selectors'
+import { closeModal } from '@entities/modal'
+import { selectIsModalOpen } from '@entities/modal'
 import Close from '@icons/close.svg?react'
 import { useClickOutside } from '@shared/hooks'
-import { useAnimation } from '@widgets/NavigationMenu/animation'
 import { NavLink } from 'react-router-dom'
+
+import { useAnimation } from './animation'
 
 import './NavigationMenu.scss'
 

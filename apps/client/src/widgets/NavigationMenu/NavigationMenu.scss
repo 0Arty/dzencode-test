@@ -8,6 +8,8 @@
 
    @include mobile {
       position: initial;
+      position: absolute;
+      flex-grow: 0;
       height: 0;
    }
 }
@@ -23,7 +25,7 @@
    flex-grow: 1;
    gap: 1rem;
    width: fit-content;
-   min-width: rem(240);
+   width: 100%;
    max-height: calc(100dvh - var(--header-height));
    overflow: auto;
    background-color: #fff;
@@ -37,11 +39,6 @@
       z-index: var(--layer-top-header);
       height: 100dvh;
       max-height: unset;
-   }
-
-   @include mobile {
-      width: 100%;
-      min-width: 0;
    }
 
    &--close {

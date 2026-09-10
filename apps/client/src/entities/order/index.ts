@@ -1,3 +1,5 @@
 export { orderApi } from './api/orderApi'
 export { useCreateOrder, useOrder, useOrders, useOrdersCount, useRemoveOrder } from './lib/useOrder'
-export type { CreateOrderDto } from './model/types'
+export { orderReducer } from './model/orderSlice'
+export { deleteOrderCancelled, deleteOrderRequested } from './model/orderSlice'
+export type { CreateOrderDto, DeleteOrderRequest } from './model/types'

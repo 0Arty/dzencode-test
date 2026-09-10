@@ -1,5 +1,5 @@
 import { useAppDispatch } from '@app/store/hooks'
-import { openModal } from '@entities/modal/model/modalSlice'
+import { openModal } from '@entities/modal'
 import { SolidButton } from '@shared/ui/SolidButton'
 
 export const CreateOrderButton = () => {

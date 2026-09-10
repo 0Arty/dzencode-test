@@ -20,13 +20,7 @@ export const ProductsList = () => {
 
    return (
       <div className="products-list">
-         {!!data &&
-            data.items.map((product: Product) => (
-               <div key={product.id}>
-                  <h2>{product.title}</h2>
-               </div>
-               //    <ProductCard key={product.id} data={product} />
-            ))}
+         {!!data && data.items.map((product: Product) => <ProductCard key={product.id} data={product} />)}
       </div>
    )
 }

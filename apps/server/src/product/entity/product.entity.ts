@@ -19,6 +19,15 @@ export class Product {
    @Column()
    title!: string
 
+   @Column()
+   serialNumber!: number
+
+   @Column()
+   isNew!: boolean
+
+   @Column()
+   specification!: string
+
    @Column({ type: 'enum', enum: ProductType })
    type!: ProductType
 

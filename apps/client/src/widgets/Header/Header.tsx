@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 import { useAppDispatch } from '@app/store/hooks'
-import { openModal } from '@entities/modal/model/modalSlice'
+import { openModal } from '@entities/modal'
 import Menu from '@icons/menu.svg?react'
 
 import './Header.scss'

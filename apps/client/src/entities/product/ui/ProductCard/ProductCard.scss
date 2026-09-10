@@ -1,5 +1,55 @@
 .product-card {
    display: flex;
-   align-items: center;
-   gap: 1rem;
+   flex-grow: 1;
+
+   //    flex: 1;
+   flex-shrink: 0;
+   gap: 2rem;
+   min-width: 0;
+   min-width: fit-content;
+   padding: 1rem 0.5rem;
+   border-radius: 1rem;
+   background-color: #fff;
+
+   &--image {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+
+      svg {
+         width: 2rem;
+      }
+   }
+
+   &--name {
+      min-width: rem(320);
+   }
+
+   &--order {
+      min-width: rem(320);
+   }
+
+   &--using {
+      min-width: rem(120);
+   }
+
+   &--date,
+   &--prices,
+   &--guarantee {
+      min-width: rem(140);
+   }
+
+   &--remove {
+      width: 2rem;
+      margin-left: auto;
+
+      svg {
+         width: 1rem;
+      }
+   }
 }

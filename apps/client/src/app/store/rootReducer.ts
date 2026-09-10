@@ -1,5 +1,5 @@
-import { modalReducer } from '@entities/modal/model/modalSlice'
-import { orderReducer } from '@entities/order/model/orderSlice'
+import { modalReducer } from '@entities/modal'
+import { orderReducer } from '@entities/order'
 import { combineReducers } from '@reduxjs/toolkit'
 
 export const rootReducer = combineReducers({

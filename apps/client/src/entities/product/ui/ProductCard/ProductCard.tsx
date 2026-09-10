@@ -1,3 +1,6 @@
+import Monitor from '@icons/monitor.svg?react'
+import Trash from '@icons/trash.svg?react'
+import { useFormattedString } from '@shared/hooks'
 import { type Product } from '@shared/types'
 
 import './ProductCard.scss'
@@ -7,20 +10,62 @@ interface Props {
 }
 
 export const ProductCard = ({ data }: Props) => {
-   const { title, prices } = data
+   const { title, serialNumber, isNew, guarantee_start, guarantee_end, order, prices, createdAt } = data
+
+   const { fullFormatNumeric: guaranteeStart } = useFormattedString({ isoString: guarantee_start })
+   const { fullFormatNumeric: guaranteeEnd } = useFormattedString({ isoString: guarantee_end })
+   const { formatNumeric, formatString } = useFormattedString({ isoString: createdAt })
 
    return (
       <div className="product-card">
-         <h3>{title}</h3>
+         <div className="product-card--image ">
+            <Monitor />
+         </div>
+         <div className="product-card--name ">
+            <h4 className="mb-0">{title}</h4>
+            <h6 className="mb-0 opacity-75">
+               <span>S.N.12 - </span> {serialNumber}
+            </h6>
+         </div>
+         <div className="product-card--guarantee ">
+            <h6>
+               <span className="opacity-75">Start:</span>
+               <b> {guaranteeStart}</b>
+            </h6>
+            <h6>
+               <span className="opacity-75">Start:</span> <b>{guaranteeEnd}</b>
+            </h6>
+         </div>
 
-         {!!prices &&
-            prices &&
-            prices.map(price => (
-               <div key={`product-price--${price.id}`}>
-                  <h3>{price.value}</h3>
-                  <h3>{price.symbol}</h3>
-               </div>
-            ))}
+         <div className="product-card--using ">
+            <h6>
+               <span className="opacity-75">Condition:</span> <b>{isNew ? 'New' : 'Used'}</b>
+            </h6>
+         </div>
+         <div className="product-card--prices ">
+            {prices.map(price => {
+               return (
+                  <div key={price.id}>
+                     <span className="opacity-75">{price.symbol}: </span> <b>{price.value}</b>
+                  </div>
+               )
+            })}
+         </div>
+         {order?.title && (
+            <div className="product-card--order ">
+               <h6>
+                  <span className="opacity-75">Order: </span>
+                  <b>{order.title}</b>
+               </h6>
+            </div>
+         )}
+         <div className="product-card--date ">
+            <h6>{formatNumeric}</h6>
+            <h6> {formatString}</h6>
+         </div>
+         <div className="product-card--remove ">
+            <Trash />
+         </div>
       </div>
    )
 }

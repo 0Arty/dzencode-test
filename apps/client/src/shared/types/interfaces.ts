@@ -10,14 +10,15 @@ export interface ProductPrice {
 export interface Product {
    id: number
    title: string
+   serialNumber: string
+   isNew: boolean
+   specification: string
    type: ProductType
    guarantee_start: Date
    guarantee_end: Date
-   prices: ProductPrice[]
-
-   order: Order | null
-
    createdAt: Date
+   order: Order | null
+   prices: ProductPrice[]
 }
 
 export interface Order {

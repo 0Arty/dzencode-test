@@ -1,8 +1,8 @@
 import { useAppDispatch } from '@app/store/hooks'
-import { closeModal } from '@entities/modal/model/modalSlice'
+import { closeModal } from '@entities/modal'
 import { type CreateOrderDto, useCreateOrder } from '@entities/order'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from '@shared/ui/Input/Input'
+import { Input } from '@shared/ui/Input'
 import { useForm } from 'react-hook-form'
 
 import { schema } from './schema'
