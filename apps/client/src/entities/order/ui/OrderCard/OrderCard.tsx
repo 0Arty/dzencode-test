@@ -1,3 +1,7 @@
+import { useAppDispatch } from '@app/store/hooks'
+import { openModal } from '@entities/modal/model/modalSlice'
+import { deleteOrderRequested } from '@entities/order/model/orderSlice'
+import type { DeleteOrderRequest } from '@entities/order/model/types'
 import List from '@icons/list.svg?react'
 import Trash from '@icons/trash.svg?react'
 import { useFormattedString } from '@shared/hooks'
@@ -11,7 +15,18 @@ interface Props {
 }
 
 export const OrderCard = ({ data }: Props) => {
-   const { title, createdAt: isoString, productsCount, sums } = data
+   const { id, title, createdAt: isoString, productsCount, sums } = data
+
+   const dispatch = useAppDispatch()
+   const payload: DeleteOrderRequest = {
+      orderID: id,
+      orderName: title,
+   }
+
+   const openConfirmRemoveModal = () => {
+      dispatch(openModal('deleteOrder'))
+      dispatch(deleteOrderRequested(payload))
+   }
 
    const { formatNumeric, formatString } = useFormattedString({ isoString })
 
@@ -45,7 +60,7 @@ export const OrderCard = ({ data }: Props) => {
             ))}
          </div>
 
-         <button className="order-card--remove">
+         <button className="order-card--remove" onClick={openConfirmRemoveModal}>
             <Trash />
          </button>
       </div>

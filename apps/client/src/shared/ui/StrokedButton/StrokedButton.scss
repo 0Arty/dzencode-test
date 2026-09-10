@@ -1,0 +1,17 @@
+.stroked-btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: fit-content;
+   padding: 0.5rem 2rem;
+   border: 1px solid var(--green);
+   border-radius: 2rem;
+   color: var(--green);
+   transition: 0.3s ease-in-out background-color;
+
+   @include animation-on-hover {
+      background-color: var(--light-green);
+      color: white;
+      border-color: var(--light-green);
+   }
+}
