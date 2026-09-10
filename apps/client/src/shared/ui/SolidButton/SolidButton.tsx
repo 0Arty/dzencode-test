@@ -3,7 +3,7 @@ import { type ButtonHTMLAttributes } from 'react'
 import './SolidButton.scss'
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-   variant?: 'primary' | 'secondary'
+   className: string
 }
 
 export const SolidButton = ({ children, className, ...rest }: Props) => {

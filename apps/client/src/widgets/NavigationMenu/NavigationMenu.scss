@@ -1,6 +1,22 @@
 @import 'bootstrap/scss/bootstrap';
 
+.navigation-menu--container {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+
+   @include mobile {
+      position: initial;
+      height: 0;
+   }
+}
+
 .navigation-menu {
+   @include hide-scrollbar;
+
+   position: sticky;
+   top: var(--header-height);
    z-index: var(--layer-top-header);
    display: flex;
    flex-direction: column;
@@ -8,10 +24,7 @@
    gap: 1rem;
    width: fit-content;
    min-width: rem(240);
-
-   @include hide-scrollbar;
-
-   max-height: 100dvh;
+   max-height: calc(100dvh - var(--header-height));
    overflow: auto;
    background-color: #fff;
    padding-inline: 2rem;
@@ -21,7 +34,9 @@
       position: fixed;
       top: 0;
       left: 0;
+      z-index: var(--layer-top-header);
       height: 100dvh;
+      max-height: unset;
    }
 
    @include mobile {

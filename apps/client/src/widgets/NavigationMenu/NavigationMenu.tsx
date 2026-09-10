@@ -21,7 +21,7 @@ export const NavigationMenu = () => {
    useClickOutside(asideRef, closeMenuHandler, isOpen)
 
    return (
-      <>
+      <div className="navigation-menu--container">
          <aside className="navigation-menu shadow-lg" ref={asideRef}>
             <button onClick={closeMenuHandler} className="navigation-menu--close">
                <Close />
@@ -36,6 +36,6 @@ export const NavigationMenu = () => {
                </NavLink>
             </nav>
          </aside>
-      </>
+      </div>
    )
 }

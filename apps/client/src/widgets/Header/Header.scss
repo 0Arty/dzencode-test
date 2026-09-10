@@ -1,7 +1,15 @@
 .header {
    position: sticky;
+   top: 0;
+   z-index: calc(var(--layer-top-header) + 1);
    display: flex;
    width: 100%;
+   padding: 1rem;
+   background-color: white;
+
+   @include tablet-base-layout {
+      z-index: var(--layer-top);
+   }
 
    &--modal-handler {
       display: none;
