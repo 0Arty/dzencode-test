@@ -1,12 +1,13 @@
 import { useAppDispatch } from '@app/store/hooks'
 import { openModal } from '@entities/modal'
-import type { DeleteOrderRequest } from '@entities/order'
-import { deleteOrderRequested } from '@entities/order'
 import List from '@icons/list.svg?react'
 import Trash from '@icons/trash.svg?react'
 import { useFormattedString } from '@shared/hooks'
 import type { Order } from '@shared/types'
 import { CurencyBadge } from '@shared/ui/CurencyBadge'
+
+import { deleteOrderRequested } from '../../model/orderSlice'
+import type { DeleteOrderRequest } from '../../model/types'
 
 import './OrderCard.scss'
 

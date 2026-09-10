@@ -39,7 +39,7 @@ export const useCreateOrder = () => {
 export const useRemoveOrder = () => {
    const queryClient = useQueryClient()
    return useMutation({
-      mutationFn: (id: string) => orderApi.remove(id),
+      mutationFn: (id: number) => orderApi.remove(id),
       onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEY }),
    })
 }

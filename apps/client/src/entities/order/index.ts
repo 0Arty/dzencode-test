@@ -3,3 +3,5 @@ export { useCreateOrder, useOrder, useOrders, useOrdersCount, useRemoveOrder } f
 export { orderReducer } from './model/orderSlice'
 export { deleteOrderCancelled, deleteOrderRequested } from './model/orderSlice'
 export type { CreateOrderDto, DeleteOrderRequest } from './model/types'
+export { OrderCard } from './ui/OrderCard/'
+export { OrdersList } from './ui/OrdersList'

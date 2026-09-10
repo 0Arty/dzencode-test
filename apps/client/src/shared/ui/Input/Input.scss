@@ -1,0 +1,35 @@
+.input {
+   display: flex;
+   flex-direction: column;
+   gap: 0.125rem;
+   width: 100%;
+
+   &:not(&:has(.input--node:focus, .input--node:focus-visible, .input--node:active)) {
+      @include animation-on-hover {
+         .input--node {
+            border-color: rgb(0 0 0 / 40%);
+         }
+      }
+   }
+
+   .label {
+      opacity: 0.75;
+      font-size: rem(12);
+      text-transform: uppercase;
+   }
+
+   &--node {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgb(0 0 0 / 10%);
+      border-radius: 1rem;
+      font-size: 1.25rem;
+      transition: 0.3s ease-in-out all;
+
+      &:focus,
+      &:focus-visible,
+      &:active {
+         border-color: rgb(0 0 0 / 100%);
+      }
+   }
+}

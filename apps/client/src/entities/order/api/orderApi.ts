@@ -26,7 +26,7 @@ export const orderApi = {
       return data
    },
 
-   remove: async (id: string): Promise<void> => {
+   remove: async (id: number): Promise<void> => {
       await axiosInstance.delete(`${BASE_URL}/${id}`)
    },
 }
