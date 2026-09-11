@@ -37,9 +37,9 @@ export const ProductCard = ({ data }: Props) => {
             <Monitor />
          </div>
          <div className="product-card--name ">
-            <h4 className="mb-0">{title}</h4>
+            <h5 className="mb-0">{title}</h5>
             <h6 className="mb-0 opacity-75">
-               <span>S.N.12 - </span> {serialNumber}
+               <span>S.N: </span> {serialNumber}
             </h6>
          </div>
          <div className="product-card--guarantee ">
