@@ -16,9 +16,12 @@ export interface UpdateProductDto extends Partial<CreateProductDto> {
    id: string
 }
 
+export type ProductsTypesFilter = ProductType | null
+
 export interface ProductState {
    productID: number | null
    productName: string
+   activeFilter: ProductsTypesFilter
 }
 
 export interface DeleteProductRequest {

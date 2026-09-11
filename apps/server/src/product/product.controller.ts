@@ -14,6 +14,7 @@ import { ProductService } from './product.service'
 import { CreateProductDto } from './dto/create-product.dto'
 import { UpdateProductDto } from './dto/update-product.dto'
 import { FindProductsQueryDto } from './dto/find-products-query.dto'
+import { CountProductsQueryDto } from './dto/count-products.dto'
 
 @Controller('products')
 export class ProductController {
@@ -30,8 +31,8 @@ export class ProductController {
    }
 
    @Get('/total')
-   getProductsTotalCount() {
-      return this.productService.getProductsTotalCount()
+   getProductsTotalCount(@Query() query: CountProductsQueryDto) {
+      return this.productService.getProductsTotalCount(query.type)
    }
 
    @Get(':id')

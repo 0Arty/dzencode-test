@@ -1,3 +1,4 @@
+import { useAppSelector } from '@app/store/hooks'
 import { ProductCard } from '@entities/product'
 import type { Product } from '@shared/types'
 
@@ -6,13 +7,16 @@ import { useProducts } from '../../lib/useProduct'
 import './ProductsList.scss'
 
 export const ProductsList = () => {
-   const { data, isLoading, isError } = useProducts()
+   const activeFilter = useAppSelector(state => state.product.activeFilter)
+   const { data, isLoading, isError, error } = useProducts(activeFilter)
 
    if (isLoading) {
       return <h2>Loading...</h2>
    }
 
    if (isError) {
+      console.error(isError)
+      console.error(error)
       return <h2>Something went wrong</h2>
    }
 

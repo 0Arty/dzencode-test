@@ -49,5 +49,4 @@ export interface CreateProductPriceDto {
 export interface SelectOptions<T = string | number> {
    value: T
    title: string
-   isSelected?: boolean
 }

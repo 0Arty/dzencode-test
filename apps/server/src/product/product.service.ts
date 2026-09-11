@@ -8,6 +8,7 @@ import { ProductPrice } from '../price/entity'
 import { CreateProductDto } from './dto/create-product.dto'
 import { UpdateProductDto } from './dto/update-product.dto'
 import { FindProductsQueryDto } from './dto/find-products-query.dto'
+import { ProductType } from '@types'
 
 @Injectable()
 export class ProductService {
@@ -55,8 +56,10 @@ export class ProductService {
       }
    }
 
-   async getProductsTotalCount(): Promise<number> {
-      const total = await this.productRepo.count()
+   async getProductsTotalCount(type?: ProductType): Promise<number> {
+      const total = await this.productRepo.count({
+         where: type ? { type } : {},
+      })
       return total
    }
 

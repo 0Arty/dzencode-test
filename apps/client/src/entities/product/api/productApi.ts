@@ -1,17 +1,26 @@
 import { axiosInstance } from '@shared/api/axiosInstance'
 import { type PaginatedResponse, type Product } from '@shared/types'
 
-import type { CreateProductDto, UpdateProductDto } from '../model/types'
+import type { CreateProductDto, ProductsTypesFilter, UpdateProductDto } from '../model/types'
 
 const BASE_URL = '/products'
 
 export const productApi = {
-   getAll: async (): Promise<PaginatedResponse<Product>> => {
-      const { data } = await axiosInstance.get<PaginatedResponse<Product>>(BASE_URL)
+   getAll: async (type: ProductsTypesFilter): Promise<PaginatedResponse<Product>> => {
+      const { data } = await axiosInstance.get<PaginatedResponse<Product>>(`${BASE_URL}`, {
+         params: {
+            type: type ?? undefined,
+         },
+      })
+
       return data
    },
-   getProductsCount: async () => {
-      const { data } = await axiosInstance.get<number>(`${BASE_URL}/total`)
+   getProductsCount: async (type: ProductsTypesFilter) => {
+      const { data } = await axiosInstance.get<number>(`${BASE_URL}/total`, {
+         params: {
+            type: type ?? undefined,
+         },
+      })
       return data
    },
 

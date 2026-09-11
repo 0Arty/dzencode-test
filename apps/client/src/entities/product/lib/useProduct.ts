@@ -1,14 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 import { productApi } from '../api/productApi'
-import type { CreateProductDto, UpdateProductDto } from '../model/types'
+import type { CreateProductDto, ProductsTypesFilter, UpdateProductDto } from '../model/types'
 
 const QUERY_KEY = ['product']
 
-export const useProducts = () => {
+export const useProducts = (type: ProductsTypesFilter) => {
    return useQuery({
-      queryKey: QUERY_KEY,
-      queryFn: productApi.getAll,
+      queryKey: [QUERY_KEY, type],
+      queryFn: () => productApi.getAll(type),
    })
 }
 
@@ -20,10 +20,10 @@ export const useProduct = (id: string) => {
    })
 }
 
-export const useProductsCount = () => {
+export const useProductsCount = (type: ProductsTypesFilter) => {
    return useQuery({
-      queryKey: [...QUERY_KEY, 'count'],
-      queryFn: productApi.getProductsCount,
+      queryKey: [...QUERY_KEY, 'count', type],
+      queryFn: () => productApi.getProductsCount(type),
    })
 }
 
