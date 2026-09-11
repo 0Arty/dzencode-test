@@ -1,20 +1,25 @@
-.input {
+.select {
    width: 100%;
    padding: 1rem 1.25rem;
    border: 1px solid rgb(0 0 0 / 10%);
    border-radius: 1rem;
+   background-color: #fff;
    font-size: 1.25rem;
    transition: 0.3s ease-in-out all;
 
-   &:focus,
-   &:focus-visible,
-   &:active {
-      border-color: rgb(0 0 0 / 100%);
+   &--option {
+      font-size: 1.25rem;
    }
 
    &:not(&:has(:focus, :focus-visible, :active)) {
       @include animation-on-hover {
          border-color: rgb(0 0 0 / 40%);
       }
+   }
+
+   &:focus,
+   &:focus-visible,
+   &:active {
+      border-color: rgb(0 0 0 / 100%);
    }
 }

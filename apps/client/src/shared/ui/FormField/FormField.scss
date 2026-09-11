@@ -1,0 +1,12 @@
+.input--label {
+   display: flex;
+   flex-direction: column;
+   gap: 0.125rem;
+   width: 100%;
+
+   .label {
+      opacity: 0.75;
+      font-size: rem(12);
+      text-transform: uppercase;
+   }
+}

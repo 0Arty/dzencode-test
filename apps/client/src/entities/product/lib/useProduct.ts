@@ -30,7 +30,7 @@ export const useProductsCount = () => {
 export const useCreateProduct = () => {
    const queryClient = useQueryClient()
    return useMutation({
-      mutationFn: productApi.create,
+      mutationFn: (dto: CreateProductDto) => productApi.create(dto),
       onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEY }),
    })
 }

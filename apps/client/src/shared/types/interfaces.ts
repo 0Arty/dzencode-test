@@ -1,11 +1,12 @@
 import type { CurrencySymbol, ProductType, Sums } from '@shared/types'
+import type { OptionHTMLAttributes } from 'react'
 
 export interface ProductPrice {
    id: number
    value: number
    symbol: CurrencySymbol
    isDefault: boolean
-   product: Product
+   product?: Product
 }
 export interface Product {
    id: number
@@ -37,4 +38,16 @@ export interface PaginatedResponse<T> {
    page: number
    limit: number
    pages: number
+}
+
+export interface CreateProductPriceDto {
+   value: number
+   symbol: CurrencySymbol
+   isDefault?: boolean
+}
+
+export interface SelectOptions<T = string | number> {
+   value: T
+   title: string
+   isSelected?: boolean
 }

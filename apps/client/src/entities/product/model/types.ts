@@ -3,11 +3,10 @@ import type { CreateProductPriceDto, ProductType } from '@shared/types'
 export interface CreateProductDto {
    orderId?: number
    serialNumber: number
-   isNew?: boolean
-   photo?: string
+   isNew: boolean
    title: string
    type: ProductType
-   specification?: string
+   specification: string
    guarantee_start: string
    guarantee_end: string
    prices: CreateProductPriceDto[]
