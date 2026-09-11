@@ -1,0 +1,1 @@
+export { RemoveProductModal } from './RemoveProductModal'

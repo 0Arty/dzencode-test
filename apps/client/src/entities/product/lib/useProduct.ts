@@ -46,7 +46,7 @@ export const useUpdateProduct = () => {
 export const useRemoveProduct = () => {
    const queryClient = useQueryClient()
    return useMutation({
-      mutationFn: (id: string) => productApi.remove(id),
+      mutationFn: (id: number) => productApi.remove(id),
       onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEY }),
    })
 }

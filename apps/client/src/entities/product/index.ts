@@ -7,6 +7,7 @@ export {
    useRemoveProduct,
    useUpdateProduct,
 } from './lib/useProduct'
-export type { CreateProductDto, UpdateProductDto } from './model/types'
+export { deleteProductCancelled, deleteProductRequested, productReducer } from './model/productSlise'
+export type { CreateProductDto, DeleteProductRequest, UpdateProductDto } from './model/types'
 export { ProductCard } from './ui/ProductCard'
 export { ProductsList } from './ui/ProductsList'

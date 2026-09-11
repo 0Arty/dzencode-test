@@ -15,3 +15,13 @@ export interface CreateProductDto {
 export interface UpdateProductDto extends Partial<CreateProductDto> {
    id: string
 }
+
+export interface ProductState {
+   productID: number | null
+   productName: string
+}
+
+export interface DeleteProductRequest {
+   productID: number
+   productName: string
+}

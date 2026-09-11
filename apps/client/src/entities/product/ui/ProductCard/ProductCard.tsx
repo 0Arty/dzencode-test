@@ -1,3 +1,7 @@
+import { useAppDispatch } from '@app/store/hooks'
+import { openModal } from '@entities/modal'
+import type { DeleteProductRequest } from '@entities/product'
+import { deleteProductRequested } from '@entities/product'
 import Monitor from '@icons/monitor.svg?react'
 import Trash from '@icons/trash.svg?react'
 import { useFormattedString } from '@shared/hooks'
@@ -10,11 +14,22 @@ interface Props {
 }
 
 export const ProductCard = ({ data }: Props) => {
-   const { title, serialNumber, isNew, guarantee_start, guarantee_end, order, prices, createdAt } = data
+   const { title, serialNumber, isNew, guarantee_start, guarantee_end, order, prices, createdAt, id } = data
+   const dispatch = useAppDispatch()
 
    const { fullFormatNumeric: guaranteeStart } = useFormattedString({ isoString: guarantee_start })
    const { fullFormatNumeric: guaranteeEnd } = useFormattedString({ isoString: guarantee_end })
    const { formatNumeric, formatString } = useFormattedString({ isoString: createdAt })
+
+   const payload: DeleteProductRequest = {
+      productID: id,
+      productName: title,
+   }
+
+   const openRemoveRequestModal = () => {
+      dispatch(openModal('deleteProduct'))
+      dispatch(deleteProductRequested(payload))
+   }
 
    return (
       <div className="product-card">
@@ -63,9 +78,10 @@ export const ProductCard = ({ data }: Props) => {
             <h6>{formatNumeric}</h6>
             <h6> {formatString}</h6>
          </div>
-         <div className="product-card--remove ">
+
+         <button className="product-card--remove " onClick={openRemoveRequestModal}>
             <Trash />
-         </div>
+         </button>
       </div>
    )
 }

@@ -1,6 +1,7 @@
 import { CreateOrderModal } from '@features/create-order/'
 import { CreateProductModal } from '@features/create-product'
 import { RemoveOrderModal } from '@features/remove-order/'
+import { RemoveProductModal } from '@features/remove-product/ui/RemoveProductModal'
 import { Header } from '@widgets/Header'
 import { NavigationMenu } from '@widgets/NavigationMenu'
 import { Outlet } from 'react-router-dom'
@@ -15,6 +16,7 @@ export const BaseLayout = () => {
          <CreateOrderModal />
          <CreateProductModal />
          <RemoveOrderModal />
+         <RemoveProductModal />
 
          <main className="app-wrapper">
             <NavigationMenu />
