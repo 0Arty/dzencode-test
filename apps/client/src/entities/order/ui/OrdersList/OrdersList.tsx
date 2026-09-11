@@ -18,12 +18,7 @@ export const OrdersList = () => {
 
    return (
       <div className="orders-list">
-         {!!data &&
-            data.items.map((order: Order) => (
-               <div key={`order-${order.id}`}>
-                  <OrderCard data={order} />
-               </div>
-            ))}
+         {!!data && data.items.map((order: Order) => <OrderCard data={order} key={`order-${order.id}`} />)}
       </div>
    )
 }
