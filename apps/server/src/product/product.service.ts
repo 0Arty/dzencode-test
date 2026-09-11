@@ -56,7 +56,7 @@ export class ProductService {
    }
 
    async getProductsTotalCount(): Promise<number> {
-      const total = await this.orderRepo.count()
+      const total = await this.productRepo.count()
       return total
    }
 
