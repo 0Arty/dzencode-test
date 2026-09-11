@@ -1,17 +1,20 @@
 import { FormField } from '@shared/ui/FormField'
+import classNames from 'classnames'
 import type { InputHTMLAttributes } from 'react'
+import type { FieldError } from 'react-hook-form'
 
 import './Input.scss'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
    label: string
+   error?: FieldError | { message?: string }
 }
 
-export const Input = ({ label, ...props }: Props) => {
+export const Input = ({ label, error, ...props }: Props) => {
    const title = label
    return (
-      <FormField label={title}>
-         <input {...props} className="input" />
+      <FormField label={title} error={error}>
+         <input {...props} className={classNames('input', { 'input--error': error?.message })} />
       </FormField>
    )
 }

@@ -43,20 +43,22 @@ export const CreateProductForm = () => {
 
    return (
       <form className="product-create-form" onSubmit={handleSubmit(onSubmit)} noValidate>
-         <Input label={'Title'} {...register('title')} />
-         <InputNumber label={'Serial number'} {...register('serialNumber')} />
-         <Input label={'specification'} {...register('specification')} />
-         <Input label={'Guarantee start'} type="date" {...register('guarantee_start')} />
-         <Input label={'Guarantee end'} type="date" {...register('guarantee_end')} />
+         <Input label={'Title'} {...register('title')} error={errors.title} />
 
-         <Select label={'Type'} options={selectTypesOptions} {...register('type')} />
+         <InputNumber label={'Serial number'} {...register('serialNumber')} error={errors.serialNumber} />
+
+         <Input label={'specification'} {...register('specification')} error={errors.specification} />
+
+         <Input label={'Guarantee start'} type="date" {...register('guarantee_start')} error={errors.guarantee_start} />
+
+         <Input label={'Guarantee end'} type="date" {...register('guarantee_end')} error={errors.guarantee_end} />
+
+         <Select label={'Type'} options={selectTypesOptions} {...register('type')} error={errors.type} />
 
          <CheckBox value="Is new?" {...register('isNew')} />
 
-         <InputNumber label={'Price UAH'} {...register('priceUAH')} />
-         <InputNumber label={'Price USD'} {...register('priceUSD')} />
-
-         {errors.title && <span className="product-create-form__error">{errors.title.message}</span>}
+         <InputNumber label={'Price UAH'} {...register('priceUAH')} error={errors.priceUAH} />
+         <InputNumber label={'Price USD'} {...register('priceUSD')} error={errors.priceUSD} />
 
          <SolidButton type="submit" disabled={isPending} className="product-create-form--submit-btn">
             {' '}

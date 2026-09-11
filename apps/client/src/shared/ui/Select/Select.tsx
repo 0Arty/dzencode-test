@@ -1,16 +1,18 @@
 import type { SelectOptions } from '@shared/types'
 import { FormField } from '@shared/ui/FormField'
 import type { SelectHTMLAttributes } from 'react'
+import type { FieldError } from 'react-hook-form'
 
 import './Select.scss'
 interface Props extends SelectHTMLAttributes<HTMLElement> {
    label: string
+   error?: FieldError | { message?: string }
    options: SelectOptions[]
 }
 
-export const Select = ({ label, options, ...props }: Props) => {
+export const Select = ({ label, error, options, ...props }: Props) => {
    return (
-      <FormField label={label}>
+      <FormField label={label} error={error}>
          <select {...props} className="select">
             {options?.map(option => {
                return (

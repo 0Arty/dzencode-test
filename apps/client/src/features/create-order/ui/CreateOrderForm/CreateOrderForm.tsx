@@ -6,7 +6,7 @@ import { Input } from '@shared/ui/Input'
 import { SolidButton } from '@shared/ui/SolidButton'
 import { useForm } from 'react-hook-form'
 
-import { schema } from './schema'
+import { schema } from '../../model/schema'
 
 import './CreateOrderForm.scss'
 
@@ -43,9 +43,7 @@ export const CreateOrderForm = () => {
 
    return (
       <form className="order-form" onSubmit={handleSubmit(onSubmit)} noValidate>
-         <Input label="Order title" type="text" placeholder="Order title" {...register('title')} />
-
-         {errors.title && <span className="order-form__error">{errors.title.message}</span>}
+         <Input label="Order title" type="text" placeholder="Order title" {...register('title')} error={errors.title} />
 
          <SolidButton type="submit" disabled={isPending} className="order-form--submit-btn">
             {' '}
