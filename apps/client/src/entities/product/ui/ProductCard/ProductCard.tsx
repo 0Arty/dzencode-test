@@ -1,4 +1,4 @@
-import { useAppDispatch } from '@app/store/hooks'
+import { useAppDispatch } from '@shared/lib/'
 import { openModal } from '@entities/modal'
 import type { DeleteProductRequest } from '@entities/product'
 import { deleteProductRequested } from '@entities/product'

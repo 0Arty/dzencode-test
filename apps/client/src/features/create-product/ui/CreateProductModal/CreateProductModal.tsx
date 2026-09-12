@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '@app/store/hooks'
+import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import { closeModal } from '@entities/modal'
 import { selectIsModalOpen } from '@entities/modal'
 import { CreateProductForm } from '@features/create-product'

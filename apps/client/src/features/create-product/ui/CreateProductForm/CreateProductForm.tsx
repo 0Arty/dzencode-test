@@ -1,4 +1,4 @@
-import { useAppDispatch } from '@app/store/hooks'
+import { useAppDispatch } from '@shared/lib/'
 import { closeModal } from '@entities/modal'
 import { useCreateProduct } from '@entities/product'
 import { zodResolver } from '@hookform/resolvers/zod'

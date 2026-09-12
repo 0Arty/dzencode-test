@@ -1,8 +1,8 @@
 // libs
-import { ROUTES } from '@app/routers/config/routes'
 import { NotFoundPage } from '@pages/NotFound'
 import { OrdersPage } from '@pages/Orders/Orders.page'
 import { ProductsPage } from '@pages/Products'
+import { ROUTES } from '@shared/config'
 import { createBrowserRouter } from 'react-router-dom'
 
 // components

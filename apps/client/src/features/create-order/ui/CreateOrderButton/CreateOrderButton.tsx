@@ -1,4 +1,4 @@
-import { useAppDispatch } from '@app/store/hooks'
+import { useAppDispatch } from '@shared/lib/'
 import { openModal } from '@entities/modal'
 import { SolidButton } from '@shared/ui/SolidButton'
 

@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '@app/store/hooks'
+import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import { closeModal, selectIsModalOpen } from '@entities/modal'
 import { deleteProductCancelled, useRemoveProduct } from '@entities/product'
 import { Modal } from '@shared/ui/Modal'

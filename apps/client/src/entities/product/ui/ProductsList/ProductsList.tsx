@@ -1,4 +1,4 @@
-import { useAppSelector } from '@app/store/hooks'
+import { useAppSelector } from '@shared/lib/'
 import { ProductCard } from '@entities/product'
 import type { Product } from '@shared/types'
 

@@ -1,9 +1,9 @@
-import { ROUTES } from '@app/routers/config/routes'
-import { useAppDispatch, useAppSelector } from '@app/store/hooks'
 import { closeModal } from '@entities/modal'
 import { selectIsModalOpen } from '@entities/modal'
 import Close from '@icons/close.svg?react'
+import { ROUTES } from '@shared/config'
 import { useClickOutside } from '@shared/hooks'
+import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import { NavLink } from 'react-router-dom'
 
 import { useAnimation } from './animation'

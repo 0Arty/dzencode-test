@@ -1,4 +1,4 @@
-import { useAppSelector } from '@app/store/hooks'
+import { useAppSelector } from '@shared/lib/'
 import { ProductsList, useProductsCount } from '@entities/product'
 import { CreateProductButton } from '@features/create-product/ui/CreateProductButton/CreateProductButton'
 import { ProductsFilter } from '@features/filter-products/ui/ProductsFilter'

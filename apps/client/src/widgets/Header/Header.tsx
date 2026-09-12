@@ -1,11 +1,11 @@
 import { useRef } from 'react'
 
-import { useAppDispatch } from '@app/store/hooks'
 import { openModal } from '@entities/modal'
 import { ActiveTabsCounter } from '@features/ative-tabs'
 import { CurrentTime } from '@features/current-time/index,.'
 import Menu from '@icons/menu.svg?react'
 import { useElementHeight } from '@shared/hooks'
+import { useAppDispatch } from '@shared/lib/'
 
 import './Header.scss'
 export const Header = () => {

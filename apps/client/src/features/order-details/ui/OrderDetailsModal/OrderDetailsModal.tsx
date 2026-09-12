@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '@app/store/hooks'
 import { closeModal, selectIsModalOpen } from '@entities/modal'
+import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import { Modal } from '@shared/ui/Modal'
 import { ModalTitle } from '@shared/ui/ModalTitle'
 
