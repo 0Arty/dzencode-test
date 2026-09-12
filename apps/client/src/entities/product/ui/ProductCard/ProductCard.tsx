@@ -1,10 +1,10 @@
-import { useAppDispatch } from '@shared/lib/'
 import { openModal } from '@entities/modal'
 import type { DeleteProductRequest } from '@entities/product'
 import { deleteProductRequested } from '@entities/product'
 import Monitor from '@icons/monitor.svg?react'
 import Trash from '@icons/trash.svg?react'
 import { useFormattedString } from '@shared/hooks'
+import { useAppDispatch } from '@shared/lib/'
 import { type Product } from '@shared/types'
 
 import './ProductCard.scss'

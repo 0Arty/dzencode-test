@@ -1,0 +1,1 @@
+export { ProductInOrder } from './ProductInOrder'

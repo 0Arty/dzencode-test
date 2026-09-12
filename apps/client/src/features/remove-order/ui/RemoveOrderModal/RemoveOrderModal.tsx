@@ -1,7 +1,7 @@
-import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import { closeModal } from '@entities/modal'
 import { selectIsModalOpen } from '@entities/modal'
 import { deleteOrderCancelled, useRemoveOrder } from '@entities/order'
+import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import { Modal } from '@shared/ui/Modal'
 import { SolidButton } from '@shared/ui/SolidButton'
 import { StrokedButton } from '@shared/ui/StrokedButton'

@@ -1,10 +1,10 @@
 import { CreateOrderModal } from '@features/create-order/'
 import { CreateProductModal } from '@features/create-product'
-import { OrderDetailsModal } from '@features/order-details/'
 import { RemoveOrderModal } from '@features/remove-order/'
-import { RemoveProductModal } from '@features/remove-product/ui/RemoveProductModal'
+import { RemoveProductModal } from '@features/remove-product'
 import { Header } from '@widgets/Header'
 import { NavigationMenu } from '@widgets/NavigationMenu'
+import { OrderDetailsModal } from '@widgets/order-details/'
 import { Outlet } from 'react-router-dom'
 
 import './BaseLayout.scss'

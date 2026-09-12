@@ -28,3 +28,10 @@ export interface DeleteProductRequest {
    productID: number
    productName: string
 }
+
+export interface AttachProductToOrder {
+   productID: number
+   orderID: number
+}
+
+export type DetachProductFromOrder = AttachProductToOrder
