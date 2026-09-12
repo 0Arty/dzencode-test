@@ -6,7 +6,6 @@ import type { DeleteOrderRequest, OrderState } from './types'
 const initialState: OrderState = {
    orderID: null,
    orderName: '',
-   orderDetails: null,
 }
 
 const orderSlice = createSlice({
@@ -21,11 +20,11 @@ const orderSlice = createSlice({
          state.orderID = null
          state.orderName = ''
       },
-      setOrderDetails: (state, action: PayloadAction<Order>) => {
-         state.orderDetails = action.payload
+      setOrderId: (state, action: PayloadAction<number>) => {
+         state.orderID = action.payload
       },
    },
 })
 
-export const { deleteOrderRequested, deleteOrderCancelled, setOrderDetails } = orderSlice.actions
+export const { deleteOrderRequested, deleteOrderCancelled, setOrderId } = orderSlice.actions
 export const orderReducer = orderSlice.reducer

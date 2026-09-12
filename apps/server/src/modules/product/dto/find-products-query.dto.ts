@@ -19,4 +19,8 @@ export class FindProductsQueryDto {
    @IsOptional()
    @IsEnum(ProductType)
    type?: ProductType
+
+   @IsOptional()
+   @Type(() => Boolean)
+   withoutOrder?: boolean
 }

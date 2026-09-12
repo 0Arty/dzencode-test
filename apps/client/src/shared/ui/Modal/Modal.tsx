@@ -14,7 +14,7 @@ interface Props {
 
 export const Modal = ({ children, isOpen, outsideClickCallBack }: Props) => {
    const { containerRef, contentRef } = useAnimation({ isOpen })
-   useClickOutside(contentRef, outsideClickCallBack)
+   useClickOutside(contentRef, outsideClickCallBack, isOpen)
 
    return (
       <div className="modal-container" ref={containerRef}>

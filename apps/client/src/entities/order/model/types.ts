@@ -7,7 +7,6 @@ export interface CreateOrderDto {
 export interface OrderState {
    orderID: number | null
    orderName: string
-   orderDetails: Order | null
 }
 
 export interface DeleteOrderRequest {

@@ -6,7 +6,7 @@ import { useAppDispatch } from '@shared/lib/'
 import type { Order } from '@shared/types'
 import { CurencyBadge } from '@shared/ui/CurencyBadge'
 
-import { deleteOrderRequested, setOrderDetails } from '../../model/orderSlice'
+import { deleteOrderRequested, setOrderId } from '../../model/orderSlice'
 import type { DeleteOrderRequest } from '../../model/types'
 
 import './OrderCard.scss'
@@ -30,7 +30,7 @@ export const OrderCard = ({ data }: Props) => {
 
    const openOrderDetailsHandler = () => {
       dispatch(openModal('orderDetails'))
-      dispatch(setOrderDetails(data))
+      dispatch(setOrderId(id))
    }
 
    const { formatNumeric, formatString } = useFormattedString({ isoString })

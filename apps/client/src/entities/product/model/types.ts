@@ -34,4 +34,7 @@ export interface AttachProductToOrder {
    orderID: number
 }
 
-export type DetachProductFromOrder = AttachProductToOrder
+export interface DetachProductFromOrder {
+   productID: number
+   orderID: number
+}

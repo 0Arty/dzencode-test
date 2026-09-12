@@ -3,17 +3,27 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 import { productApi } from '../api/productApi'
 import { PRODUCT_QUERY_KEY } from '../model/queryKeys'
+import { PRODUCT_WITHOUT_ORDER_QUERY_KEY } from '../model/queryKeys'
 import type {
    AttachProductToOrder,
    CreateProductDto,
    DetachProductFromOrder,
    ProductsTypesFilter,
 } from '../model/types'
+import { ORDER_DETAIL_QUERY_KEY } from '@entities/order/model/queryKeys'
 
 export const useProducts = (type: ProductsTypesFilter) => {
    return useQuery({
       queryKey: [PRODUCT_QUERY_KEY, type],
       queryFn: () => productApi.getAll(type),
+   })
+}
+
+export const useProductsWithOurOrder = (enabled: boolean) => {
+   return useQuery({
+      queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY,
+      queryFn: () => productApi.getAllWithoutOrder(),
+      enabled,
    })
 }
 
@@ -34,18 +44,43 @@ export const useCreateProduct = () => {
 
 export const useAddProductToOrder = () => {
    const queryClient = useQueryClient()
+
    return useMutation({
-      mutationFn: ({ productID, orderID }: AttachProductToOrder) => productApi.attachToOrder({ productID, orderID }),
-      onSuccess: () => queryClient.invalidateQueries({ queryKey: [PRODUCT_QUERY_KEY] }),
+      mutationFn: ({ orderID, productID }: AttachProductToOrder) => productApi.attachToOrder({ productID, orderID }),
+
+      onSuccess: (_, variables) => {
+         queryClient.invalidateQueries({
+            queryKey: ORDER_DETAIL_QUERY_KEY(variables.orderID),
+         })
+
+         queryClient.invalidateQueries({
+            queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY,
+         })
+         queryClient.invalidateQueries({
+            queryKey: [ORDER_QUERY_KEY],
+         })
+      },
    })
 }
 
 export const useRemoveProductFromOrder = () => {
    const queryClient = useQueryClient()
+
    return useMutation({
-      mutationFn: ({ productID, orderID }: DetachProductFromOrder) =>
-         productApi.detachFromOrder({ productID, orderID }),
-      onSuccess: () => queryClient.invalidateQueries({ queryKey: [PRODUCT_QUERY_KEY, ORDER_QUERY_KEY] }),
+      mutationFn: ({ productID }: DetachProductFromOrder) => productApi.detachFromOrder(productID),
+
+      onSuccess: (_, variables) => {
+         queryClient.invalidateQueries({
+            queryKey: ORDER_DETAIL_QUERY_KEY(variables.orderID),
+         })
+
+         queryClient.invalidateQueries({
+            queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY,
+         })
+         queryClient.invalidateQueries({
+            queryKey: [ORDER_QUERY_KEY],
+         })
+      },
    })
 }
 

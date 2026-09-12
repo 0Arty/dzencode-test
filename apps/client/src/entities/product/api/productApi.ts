@@ -21,6 +21,17 @@ export const productApi = {
 
       return data
    },
+
+   getAllWithoutOrder: async (): Promise<PaginatedResponse<Product>> => {
+      const { data } = await axiosInstance.get<PaginatedResponse<Product>>(`${BASE_URL}`, {
+         params: {
+            withoutOrder: true,
+         },
+      })
+
+      return data
+   },
+
    getProductsCount: async (type: ProductsTypesFilter) => {
       const { data } = await axiosInstance.get<number>(`${BASE_URL}/total`, {
          params: {
@@ -45,8 +56,8 @@ export const productApi = {
       return data
    },
 
-   detachFromOrder: async ({ productID, orderID }: DetachProductFromOrder): Promise<Product> => {
-      const { data } = await axiosInstance.patch<Product>(`${BASE_URL}/${productID}/detach-order/${orderID}`)
+   detachFromOrder: async (productID: number): Promise<Product> => {
+      const { data } = await axiosInstance.patch<Product>(`${BASE_URL}/${productID}/detach-order`)
       return data
    },
 

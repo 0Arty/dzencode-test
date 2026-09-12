@@ -1,7 +1,7 @@
 // product.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import { Repository } from 'typeorm'
+import { IsNull, Repository } from 'typeorm'
 import { Product } from './entity'
 import { Order } from '../order/entity'
 import { ProductPrice } from '../price/entity'
@@ -38,9 +38,12 @@ export class ProductService {
       return this.productRepo.save(product)
    }
 
-   async findAll({ page, limit, type }: FindProductsQueryDto) {
+   async findAll({ page, limit, type, withoutOrder }: FindProductsQueryDto) {
       const [items, total] = await this.productRepo.findAndCount({
-         where: type ? { type } : {},
+         where: {
+            ...(type && { type }),
+            ...(withoutOrder && { order: IsNull() }),
+         },
          relations: { order: true },
          order: { createdAt: 'DESC' },
          skip: (page - 1) * limit,

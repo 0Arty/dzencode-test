@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
-import { ORDER_QUERY_KEY } from '../model/queryKeys'
+import { ORDER_DETAIL_QUERY_KEY, ORDER_QUERY_KEY } from '../model/queryKeys'
 import type { CreateOrderDto } from '../model/types'
 
 import { orderApi } from './../api/orderApi'
@@ -12,13 +12,14 @@ export const useOrders = () => {
    })
 }
 
-// export const useOrder = (id: string) => {
-//    return useQuery({
-//       queryKey: [...ORDER_QUERY_KEY, id],
-//       queryFn: () => orderApi.getById(id),
-//       enabled: !!id,
-//    })
-// }
+export const useOrder = (id: number | null) => {
+   return useQuery({
+      queryKey: id ? ORDER_DETAIL_QUERY_KEY(id) : ['orders', 'detail', null],
+
+      queryFn: () => orderApi.getById(id!),
+      enabled: id !== null,
+   })
+}
 
 export const useOrdersCount = () => {
    return useQuery({

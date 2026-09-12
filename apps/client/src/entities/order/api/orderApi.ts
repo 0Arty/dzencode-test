@@ -11,8 +11,8 @@ export const orderApi = {
       return data
    },
 
-   getById: async (id: string): Promise<PaginatedResponse<Order>> => {
-      const { data } = await axiosInstance.get<PaginatedResponse<Order>>(`${BASE_URL}/${id}`)
+   getById: async (id: number): Promise<Order> => {
+      const { data } = await axiosInstance.get<Order>(`${BASE_URL}/${id}`)
       return data
    },
 

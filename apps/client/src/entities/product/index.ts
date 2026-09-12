@@ -6,6 +6,7 @@ export {
    useProductsCount,
    useRemoveProduct,
    useRemoveProductFromOrder,
+   useProductsWithOurOrder,
 } from './lib/useProduct'
 export { deleteProductCancelled, deleteProductRequested, productReducer, setProductFilter } from './model/productSlise'
 export type { CreateProductDto, DeleteProductRequest, ProductsTypesFilter, UpdateProductDto } from './model/types'

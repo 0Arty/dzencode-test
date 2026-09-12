@@ -1,0 +1,30 @@
+.product-in-order {
+   display: grid;
+   grid-template-columns: rem(60) 1fr 2rem;
+   gap: 1rem;
+   width: 100%;
+   height: fit-content;
+
+   &--image {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+         width: rem(40);
+      }
+   }
+
+   &--remove {
+      width: 100%;
+      color: black;
+
+      @include animation-on-hover {
+         color: var(--green);
+      }
+      svg {
+         color: inherit;
+         width: 2rem;
+      }
+   }
+}
