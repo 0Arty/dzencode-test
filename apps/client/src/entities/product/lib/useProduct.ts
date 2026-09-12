@@ -19,7 +19,7 @@ export const useProducts = (type: ProductsTypesFilter) => {
 
 export const useProductsCount = (type: ProductsTypesFilter) => {
    return useQuery({
-      queryKey: [...PRODUCT_QUERY_KEY, 'count', type],
+      queryKey: [PRODUCT_QUERY_KEY, 'count', type],
       queryFn: () => productApi.getProductsCount(type),
    })
 }
@@ -28,7 +28,7 @@ export const useCreateProduct = () => {
    const queryClient = useQueryClient()
    return useMutation({
       mutationFn: (dto: CreateProductDto) => productApi.create(dto),
-      onSuccess: () => queryClient.invalidateQueries({ queryKey: PRODUCT_QUERY_KEY }),
+      onSuccess: () => queryClient.invalidateQueries({ queryKey: [PRODUCT_QUERY_KEY] }),
    })
 }
 
@@ -36,7 +36,7 @@ export const useAddProductToOrder = () => {
    const queryClient = useQueryClient()
    return useMutation({
       mutationFn: ({ productID, orderID }: AttachProductToOrder) => productApi.attachToOrder({ productID, orderID }),
-      onSuccess: () => queryClient.invalidateQueries({ queryKey: PRODUCT_QUERY_KEY }),
+      onSuccess: () => queryClient.invalidateQueries({ queryKey: [PRODUCT_QUERY_KEY] }),
    })
 }
 
@@ -53,7 +53,10 @@ export const useRemoveProduct = () => {
    const queryClient = useQueryClient()
    return useMutation({
       mutationFn: (id: number) => productApi.remove(id),
-      onSuccess: () => queryClient.invalidateQueries({ queryKey: [PRODUCT_QUERY_KEY, ORDER_QUERY_KEY] }),
+      onSuccess: () =>
+         queryClient.invalidateQueries({
+            queryKey: [PRODUCT_QUERY_KEY],
+         }),
    })
 }
 
