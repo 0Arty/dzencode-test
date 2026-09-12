@@ -1,5 +1,4 @@
 import type { CurrencySymbol, ProductType, Sums } from '@shared/types'
-import type { OptionHTMLAttributes } from 'react'
 
 export interface ProductPrice {
    id: number

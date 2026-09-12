@@ -7,6 +7,8 @@ const initialState: ModalState = {
    createOrder: false,
    createProduct: false,
    deleteOrder: false,
+   deleteProduct: false,
+   orderDetails: false,
 }
 
 const modalSlice = createSlice({

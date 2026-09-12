@@ -6,7 +6,7 @@ import { useFormattedString } from '@shared/hooks'
 import type { Order } from '@shared/types'
 import { CurencyBadge } from '@shared/ui/CurencyBadge'
 
-import { deleteOrderRequested } from '../../model/orderSlice'
+import { deleteOrderRequested, setOrderDetails } from '../../model/orderSlice'
 import type { DeleteOrderRequest } from '../../model/types'
 
 import './OrderCard.scss'
@@ -17,7 +17,6 @@ interface Props {
 
 export const OrderCard = ({ data }: Props) => {
    const { id, title, createdAt: isoString, productsCount, sums } = data
-
    const dispatch = useAppDispatch()
    const payload: DeleteOrderRequest = {
       orderID: id,
@@ -27,6 +26,11 @@ export const OrderCard = ({ data }: Props) => {
    const openConfirmRemoveModal = () => {
       dispatch(openModal('deleteOrder'))
       dispatch(deleteOrderRequested(payload))
+   }
+
+   const openOrderDetailsHandler = () => {
+      dispatch(openModal('orderDetails'))
+      dispatch(setOrderDetails(data))
    }
 
    const { formatNumeric, formatString } = useFormattedString({ isoString })
@@ -40,7 +44,7 @@ export const OrderCard = ({ data }: Props) => {
          <h4 className="order-card--name ">{title}</h4>
 
          <div className={'order-card--count'}>
-            <button className="open-details-btn">
+            <button className="open-details-btn" onClick={openOrderDetailsHandler}>
                <List />
             </button>
 

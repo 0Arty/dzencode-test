@@ -19,6 +19,7 @@
    width: 100%;
    padding: 1rem 2rem;
    border-radius: 1rem;
+   overflow: hidden;
    background-color: white;
 
    @include tablet {
@@ -35,7 +36,7 @@
    }
 
    &--name {
-      width: 100%;
+      flex-shrink: 0;
 
       @include tablet {
          grid-column: span 4;
