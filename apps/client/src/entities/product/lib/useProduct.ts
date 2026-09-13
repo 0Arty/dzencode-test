@@ -1,5 +1,7 @@
-import { ORDER_QUERY_KEY } from '@entities/order'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+
+import { ORDER_QUERY_KEY } from '@entities/order'
+import { ORDER_DETAIL_QUERY_KEY } from '@entities/order/model/queryKeys'
 
 import { productApi } from '../api/productApi'
 import { PRODUCT_QUERY_KEY } from '../model/queryKeys'
@@ -10,7 +12,6 @@ import type {
    DetachProductFromOrder,
    ProductsTypesFilter,
 } from '../model/types'
-import { ORDER_DETAIL_QUERY_KEY } from '@entities/order/model/queryKeys'
 
 export const useProducts = (type: ProductsTypesFilter) => {
    return useQuery({
@@ -48,17 +49,18 @@ export const useAddProductToOrder = () => {
    return useMutation({
       mutationFn: ({ orderID, productID }: AttachProductToOrder) => productApi.attachToOrder({ productID, orderID }),
 
-      onSuccess: (_, variables) => {
-         queryClient.invalidateQueries({
-            queryKey: ORDER_DETAIL_QUERY_KEY(variables.orderID),
-         })
-
-         queryClient.invalidateQueries({
-            queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY,
-         })
-         queryClient.invalidateQueries({
-            queryKey: [ORDER_QUERY_KEY],
-         })
+      onSuccess: async (_, variables) => {
+         await Promise.all([
+            queryClient.invalidateQueries({
+               queryKey: ORDER_DETAIL_QUERY_KEY(variables.orderID),
+            }),
+            queryClient.invalidateQueries({
+               queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY,
+            }),
+            queryClient.invalidateQueries({
+               queryKey: [ORDER_QUERY_KEY],
+            }),
+         ])
       },
    })
 }
@@ -69,17 +71,18 @@ export const useRemoveProductFromOrder = () => {
    return useMutation({
       mutationFn: ({ productID }: DetachProductFromOrder) => productApi.detachFromOrder(productID),
 
-      onSuccess: (_, variables) => {
-         queryClient.invalidateQueries({
-            queryKey: ORDER_DETAIL_QUERY_KEY(variables.orderID),
-         })
-
-         queryClient.invalidateQueries({
-            queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY,
-         })
-         queryClient.invalidateQueries({
-            queryKey: [ORDER_QUERY_KEY],
-         })
+      onSuccess: async (_, variables) => {
+         await Promise.all([
+            queryClient.invalidateQueries({
+               queryKey: ORDER_DETAIL_QUERY_KEY(variables.orderID),
+            }),
+            queryClient.invalidateQueries({
+               queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY,
+            }),
+            queryClient.invalidateQueries({
+               queryKey: [ORDER_QUERY_KEY],
+            }),
+         ])
       },
    })
 }
@@ -94,19 +97,3 @@ export const useRemoveProduct = () => {
          }),
    })
 }
-
-// export const useProduct = (id: string) => {
-//    return useQuery({
-//       queryKey: [...QUERY_KEY, id],
-//       queryFn: () => productApi.getById(id),
-//       enabled: !!id,
-//    })
-// }
-
-// export const useUpdateProduct = () => {
-//    const queryClient = useQueryClient()
-//    return useMutation({
-//       mutationFn: (dto: UpdateProductDto) => productApi.update(dto),
-//       onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEY }),
-//    })
-// }

@@ -1,10 +1,12 @@
 import { openModal } from '@entities/modal'
-import List from '@icons/list.svg?react'
-import Trash from '@icons/trash.svg?react'
+
 import { useFormattedString } from '@shared/hooks'
 import { useAppDispatch } from '@shared/lib/'
 import type { Order } from '@shared/types'
 import { CurencyBadge } from '@shared/ui/CurencyBadge'
+
+import List from '@icons/list.svg?react'
+import Trash from '@icons/trash.svg?react'
 
 import { deleteOrderRequested, setOrderId } from '../../model/orderSlice'
 import type { DeleteOrderRequest } from '../../model/types'

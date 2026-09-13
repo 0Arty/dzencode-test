@@ -1,7 +1,8 @@
-import type { SelectOptions } from '@shared/types'
-import { FormField } from '@shared/ui/FormField'
 import type { SelectHTMLAttributes } from 'react'
 import type { FieldError } from 'react-hook-form'
+
+import type { SelectOptions } from '@shared/types'
+import { FormField } from '@shared/ui/FormField'
 
 import './Select.scss'
 interface Props extends SelectHTMLAttributes<HTMLElement> {

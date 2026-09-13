@@ -1,6 +1,8 @@
-import { useAppSelector } from '@shared/lib/'
 import { ProductCard } from '@entities/product'
+
+import { useAppSelector } from '@shared/lib/'
 import type { Product } from '@shared/types'
+import { Loader } from '@shared/ui/Loader'
 
 import { useProducts } from '../../lib/useProduct'
 
@@ -11,13 +13,11 @@ export const ProductsList = () => {
    const { data, isLoading, isError, error } = useProducts(activeFilter)
 
    if (isLoading) {
-      return <h2>Loading...</h2>
+      return <Loader />
    }
 
    if (isError) {
-      console.error(isError)
-      console.error(error)
-      return <h2>Something went wrong</h2>
+      return <h2>Something went wrong: {error.message}</h2>
    }
 
    return (

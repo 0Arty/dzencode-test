@@ -1,5 +1,6 @@
-import { CurrencySymbol, ProductType } from '@shared/types'
 import { z } from 'zod'
+
+import { ProductType } from '@shared/types'
 
 export const schema = z.object({
    orderId: z.preprocess(value => (value === '' ? undefined : Number(value)), z.number().optional()), //

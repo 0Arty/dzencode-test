@@ -1,12 +1,13 @@
-import { useAppSelector } from '@shared/lib/'
+import { CreateProductButton } from '@features/create-product'
+import { ProductsFilter } from '@features/filter-products'
+
 import { ProductsList, useProductsCount } from '@entities/product'
-import { CreateProductButton } from '@features/create-product/ui/CreateProductButton/CreateProductButton'
-import { ProductsFilter } from '@features/filter-products/ui/ProductsFilter'
+
+import { useAppSelector } from '@shared/lib/'
 import { Title } from '@shared/ui/Title'
 
 export const ProductsPage = () => {
    const activeFilter = useAppSelector(state => state.product.activeFilter)
-
    const { data: count } = useProductsCount(activeFilter)
 
    return (
@@ -18,6 +19,7 @@ export const ProductsPage = () => {
             </div>
             <CreateProductButton />
          </div>
+
          <ProductsList />
       </div>
    )

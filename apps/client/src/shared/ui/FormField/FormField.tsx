@@ -1,6 +1,7 @@
-import { ErrorMessage } from '@shared/ui/ErrorMessage'
 import type { ReactNode } from 'react'
 import type { FieldError } from 'react-hook-form'
+
+import { ErrorMessage } from '@shared/ui/ErrorMessage'
 
 import './FormField.scss'
 

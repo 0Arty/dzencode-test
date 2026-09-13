@@ -1,7 +1,8 @@
+import { useState } from 'react'
+
 import { ProductInOrder, useAddProductToOrder, useProductsWithOurOrder } from '@entities/product'
-import type { Product } from '@shared/types'
+
 import { Dropdown } from '@shared/ui/Dropdown'
-import { useEffect, useState } from 'react'
 
 interface Props {
    orderID: number
@@ -9,9 +10,7 @@ interface Props {
 
 export const AddToOrder = ({ orderID }: Props) => {
    const [isOpen, setIsOpen] = useState(false)
-
    const { data, isError, isLoading, error } = useProductsWithOurOrder(isOpen)
-
    const { mutate: addToOrder } = useAddProductToOrder()
 
    const openDropdownHandler = () => {

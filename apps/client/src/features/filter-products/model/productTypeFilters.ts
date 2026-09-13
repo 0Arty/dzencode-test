@@ -1,4 +1,5 @@
 import type { ProductsTypesFilter } from '@entities/product'
+
 import { ProductType, type SelectOptions } from '@shared/types'
 
 export const productTypeFilters: SelectOptions<ProductsTypesFilter>[] = [

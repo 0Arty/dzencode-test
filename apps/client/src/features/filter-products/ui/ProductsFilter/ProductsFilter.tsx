@@ -1,7 +1,10 @@
-import { useAppDispatch, useAppSelector } from '@shared/lib/'
-import { type ProductsTypesFilter, setProductFilter } from '@entities/product'
-import { productTypeFilters } from '@features/filter-products/model/productTypeFilters'
 import type { ChangeEvent } from 'react'
+
+import { productTypeFilters } from '@features/filter-products/model/productTypeFilters'
+
+import { type ProductsTypesFilter, setProductFilter } from '@entities/product'
+
+import { useAppDispatch, useAppSelector } from '@shared/lib/'
 
 const ALL_VALUE = ''
 

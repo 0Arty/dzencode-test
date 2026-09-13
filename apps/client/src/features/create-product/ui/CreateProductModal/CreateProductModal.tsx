@@ -1,9 +1,11 @@
-import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import { closeModal } from '@entities/modal'
 import { selectIsModalOpen } from '@entities/modal'
-import { CreateProductForm } from '@features/create-product'
+
+import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import { Modal } from '@shared/ui/Modal'
 import { ModalTitle } from '@shared/ui/ModalTitle'
+
+import { CreateProductForm } from '../CreateProductForm'
 
 import './CreateProductModal.scss'
 

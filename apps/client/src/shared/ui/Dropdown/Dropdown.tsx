@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
+
 import './Dropdown.scss'
+
 interface Props {
    isOpen: boolean
    children: ReactNode

@@ -1,13 +1,16 @@
+import { useEffect } from 'react'
+
+import { AddToOrder } from '@features/add-product-to-order'
+
 import { closeModal, selectIsModalOpen } from '@entities/modal'
 import { useOrder } from '@entities/order'
 import { ProductInOrder } from '@entities/product'
 import { useRemoveProductFromOrder } from '@entities/product/'
-import { AddToOrder } from '@features/add-product-to-order'
+
 import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import type { Product } from '@shared/types'
 import { Modal } from '@shared/ui/Modal'
 import { ModalTitle } from '@shared/ui/ModalTitle'
-import { useEffect } from 'react'
 
 export const OrderDetailsModal = () => {
    const isOpen = useAppSelector(selectIsModalOpen('orderDetails'))

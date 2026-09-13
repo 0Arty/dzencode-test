@@ -1,5 +1,6 @@
-import { useAppDispatch } from '@shared/lib/'
 import { openModal } from '@entities/modal'
+
+import { useAppDispatch } from '@shared/lib/'
 import { SolidButton } from '@shared/ui/SolidButton'
 
 export const CreateProductButton = () => {

@@ -1,11 +1,14 @@
 import { useRef } from 'react'
 
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+
+import { CreateOrderButton } from '@features/create-order'
+
 import { useOrdersCount } from '@entities/order'
 import { OrdersList } from '@entities/order/'
-import { CreateOrderButton } from '@features/create-order'
-import { useGSAP } from '@gsap/react'
+
 import { Title } from '@shared/ui/Title'
-import gsap from 'gsap'
 
 import './Order.page.scss'
 

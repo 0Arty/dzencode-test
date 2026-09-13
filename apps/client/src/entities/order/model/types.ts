@@ -1,5 +1,3 @@
-import type { Order } from '@shared/types'
-
 export interface CreateOrderDto {
    title: string
 }

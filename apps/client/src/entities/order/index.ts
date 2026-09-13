@@ -1,5 +1,5 @@
 export { orderApi } from './api/orderApi'
-export { useCreateOrder, useOrders, useOrdersCount, useRemoveOrder, useOrder } from './lib/useOrder'
+export { useCreateOrder, useOrder, useOrders, useOrdersCount, useRemoveOrder } from './lib/useOrder'
 export { orderReducer } from './model/orderSlice'
 export { deleteOrderCancelled, deleteOrderRequested, setOrderId } from './model/orderSlice'
 export { ORDER_QUERY_KEY } from './model/queryKeys'

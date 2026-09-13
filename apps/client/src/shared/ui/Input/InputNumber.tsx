@@ -1,7 +1,8 @@
-import { FormField } from '@shared/ui/FormField'
 import classNames from 'classnames'
 import type { ChangeEvent, InputHTMLAttributes } from 'react'
 import type { FieldError } from 'react-hook-form'
+
+import { FormField } from '@shared/ui/FormField'
 
 import './Input.scss'
 

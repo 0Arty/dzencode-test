@@ -1,5 +1,6 @@
-import Checkbox from '@icons/check.svg?react'
 import type { InputHTMLAttributes } from 'react'
+
+import Checkbox from '@icons/check.svg?react'
 
 import './CheckBox.scss'
 interface Props extends InputHTMLAttributes<HTMLElement> {

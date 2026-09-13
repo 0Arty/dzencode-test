@@ -1,4 +1,3 @@
-// shared/hooks/useClickOutside.ts
 import { type RefObject, useEffect } from 'react'
 
 export const useClickOutside = (ref: RefObject<HTMLElement | null>, onClickOutside: () => void, enabled = true) => {

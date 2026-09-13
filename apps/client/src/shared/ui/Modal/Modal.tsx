@@ -1,6 +1,6 @@
-import Close from '@icons/close.svg?react'
-import { useClickOutside } from '@shared/hooks'
 import type { ReactNode } from 'react'
+
+import { useClickOutside } from '@shared/hooks'
 
 import { useAnimation } from './animation'
 

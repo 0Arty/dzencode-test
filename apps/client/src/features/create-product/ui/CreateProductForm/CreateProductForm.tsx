@@ -1,11 +1,13 @@
-import { useAppDispatch } from '@shared/lib/'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+
 import { closeModal } from '@entities/modal'
 import { useCreateProduct } from '@entities/product'
-import { zodResolver } from '@hookform/resolvers/zod'
+
+import { useAppDispatch } from '@shared/lib/'
 import { CheckBox } from '@shared/ui/CheckBox/CheckBox'
 import { Input, InputNumber } from '@shared/ui/Input'
 import { Select } from '@shared/ui/Select'
-import { useForm } from 'react-hook-form'
 
 import { SolidButton } from '../../../../shared/ui/SolidButton/SolidButton'
 import { mapFormToDto } from '../../model/mapFormToDto'

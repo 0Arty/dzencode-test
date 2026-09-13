@@ -1,10 +1,12 @@
-import { useAppDispatch } from '@shared/lib/'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+
 import { closeModal } from '@entities/modal'
 import { type CreateOrderDto, useCreateOrder } from '@entities/order'
-import { zodResolver } from '@hookform/resolvers/zod'
+
+import { useAppDispatch } from '@shared/lib/'
 import { Input } from '@shared/ui/Input'
 import { SolidButton } from '@shared/ui/SolidButton'
-import { useForm } from 'react-hook-form'
 
 import { schema } from '../../model/schema'
 

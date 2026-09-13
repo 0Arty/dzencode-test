@@ -1,11 +1,13 @@
 import { openModal } from '@entities/modal'
 import type { DeleteProductRequest } from '@entities/product'
 import { deleteProductRequested } from '@entities/product'
-import Monitor from '@icons/monitor.svg?react'
-import Trash from '@icons/trash.svg?react'
+
 import { useFormattedString } from '@shared/hooks'
 import { useAppDispatch } from '@shared/lib/'
 import { type Product } from '@shared/types'
+
+import Monitor from '@icons/monitor.svg?react'
+import Trash from '@icons/trash.svg?react'
 
 import './ProductCard.scss'
 
@@ -66,14 +68,22 @@ export const ProductCard = ({ data }: Props) => {
                )
             })}
          </div>
-         {order?.title && (
-            <div className="product-card--order ">
+
+         <div className="product-card--order ">
+            {order?.title && (
                <h6>
                   <span className="opacity-75">Order: </span>
                   <b>{order.title}</b>
                </h6>
-            </div>
-         )}
+            )}
+
+            {!order?.title && (
+               <h6>
+                  <span className="opacity-75">- </span>
+               </h6>
+            )}
+         </div>
+
          <div className="product-card--date ">
             <h6>{formatNumeric}</h6>
             <h6> {formatString}</h6>

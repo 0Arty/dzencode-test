@@ -1,6 +1,7 @@
 import { closeModal } from '@entities/modal'
 import { selectIsModalOpen } from '@entities/modal'
 import { deleteOrderCancelled, useRemoveOrder } from '@entities/order'
+
 import { useAppDispatch, useAppSelector } from '@shared/lib/'
 import { Modal } from '@shared/ui/Modal'
 import { SolidButton } from '@shared/ui/SolidButton'
@@ -31,6 +32,10 @@ export const RemoveOrderModal = () => {
       }
    }
 
+   if (isError) {
+      console.error(error.message)
+   }
+
    return (
       <>
          <Modal isOpen={isOpen} outsideClickCallBack={closeModalHandler}>
@@ -41,7 +46,7 @@ export const RemoveOrderModal = () => {
                   Cancel
                </StrokedButton>
                <SolidButton className="w-100" onClick={removeOrderHandler} disabled={isPending}>
-                  Remove
+                  {isPending ? 'Removing' : 'Remove'}
                </SolidButton>
             </div>
          </Modal>

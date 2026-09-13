@@ -1,5 +1,4 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { Order } from '@shared/types'
 
 import type { DeleteOrderRequest, OrderState } from './types'
 

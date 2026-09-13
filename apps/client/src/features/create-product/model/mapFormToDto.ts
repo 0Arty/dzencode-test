@@ -1,4 +1,5 @@
 import type { CreateProductDto } from '@entities/product'
+
 import { CurrencySymbol } from '@shared/types'
 
 import { type FormOutput } from './schema'
