@@ -52,6 +52,7 @@ export const useAddProductToOrder = () => {
          await Promise.all([
             queryClient.invalidateQueries({ queryKey: ORDER_DETAIL_QUERY_KEY(variables.orderID) }),
             queryClient.invalidateQueries({ queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY }),
+            queryClient.invalidateQueries({ queryKey: [PRODUCT_QUERY_KEY] }),
             queryClient.invalidateQueries({ queryKey: [ORDER_QUERY_KEY] }),
          ])
       },
@@ -68,6 +69,7 @@ export const useRemoveProductFromOrder = () => {
          await Promise.all([
             queryClient.invalidateQueries({ queryKey: ORDER_DETAIL_QUERY_KEY(variables.orderID) }),
             queryClient.invalidateQueries({ queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY }),
+            queryClient.invalidateQueries({ queryKey: [PRODUCT_QUERY_KEY] }),
             queryClient.invalidateQueries({ queryKey: [ORDER_QUERY_KEY] }),
          ])
       },

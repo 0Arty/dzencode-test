@@ -23,7 +23,7 @@ export const BaseLayout = () => {
 
          <main className="app-wrapper">
             <NavigationMenu />
-            <div className="d-flex flex-column py-5">
+            <div className="d-flex flex-column py-5 overflow-hidden">
                <PageTransition />
             </div>
          </main>
