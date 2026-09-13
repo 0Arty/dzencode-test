@@ -1,7 +1,14 @@
 export { orderApi } from './api/orderApi'
 export { useCreateOrder, useOrder, useOrders, useOrdersCount, useRemoveOrder } from './lib/useOrder'
 export { orderReducer } from './model/orderSlice'
-export { deleteOrderCancelled, deleteOrderRequested, setOrderId } from './model/orderSlice'
+export {
+   closeProductsDropdown,
+   deleteOrderCancelled,
+   deleteOrderRequested,
+   openProductsDropdown,
+   setOrderId,
+   toggleProductsDropdown,
+} from './model/orderSlice'
 export { ORDER_QUERY_KEY } from './model/queryKeys'
 export type { CreateOrderDto, DeleteOrderRequest } from './model/types'
 export { OrderCard } from './ui/OrderCard/'

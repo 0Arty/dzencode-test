@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import { useAnimation } from './animation'
+
 import './Dropdown.scss'
 
 interface Props {
@@ -8,5 +10,11 @@ interface Props {
 }
 
 export const Dropdown = ({ isOpen, children }: Props) => {
-   return <div className="dropdown">{children}</div>
+   const { dropdownRef } = useAnimation(isOpen)
+
+   return (
+      <div className="dropdown" ref={dropdownRef}>
+         {children}
+      </div>
+   )
 }

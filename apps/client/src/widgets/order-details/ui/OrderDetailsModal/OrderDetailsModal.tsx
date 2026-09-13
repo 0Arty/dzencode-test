@@ -1,14 +1,12 @@
-import { useEffect } from 'react'
-
 import { AddToOrder } from '@features/add-product-to-order'
 
 import { closeModal, selectIsModalOpen } from '@entities/modal'
 import { useOrder } from '@entities/order'
-import { ProductInOrder } from '@entities/product'
+import { closeProductsDropdown } from '@entities/order/model/orderSlice'
+import { ProductsListInOrder } from '@entities/product'
 import { useRemoveProductFromOrder } from '@entities/product/'
 
 import { useAppDispatch, useAppSelector } from '@shared/lib/'
-import type { Product } from '@shared/types'
 import { Modal } from '@shared/ui/Modal'
 import { ModalTitle } from '@shared/ui/ModalTitle'
 
@@ -18,15 +16,12 @@ export const OrderDetailsModal = () => {
 
    const dispatch = useAppDispatch()
    const closeModalHandler = () => {
+      dispatch(closeProductsDropdown())
       dispatch(closeModal('orderDetails'))
    }
 
    const { data: order } = useOrder(orderID)
    const { mutate: removeProduct } = useRemoveProductFromOrder()
-
-   useEffect(() => {
-      console.log(order)
-   }, [order])
 
    if (!orderID) {
       return null
@@ -48,10 +43,7 @@ export const OrderDetailsModal = () => {
          <ModalTitle title={`Order name: ${order.title} `} btnHandleFunc={closeModalHandler} />
 
          <AddToOrder orderID={orderID} />
-
-         {order.products?.map((product: Product) => {
-            return <ProductInOrder data={product} key={product.id} onClick={removeOrderHandler} icon="delete" />
-         })}
+         <ProductsListInOrder productsList={order?.products || []} onClick={removeOrderHandler} />
       </Modal>
    )
 }

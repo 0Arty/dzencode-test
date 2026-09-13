@@ -1,7 +1,9 @@
+import type { Product } from '@shared/types'
+
+import Add from '@icons/add.svg?react'
 import Monitor from '@icons/monitor.svg?react'
 import Trash from '@icons/trash.svg?react'
-import Add from '@icons/add.svg?react'
-import type { Product } from '@shared/types'
+
 import './ProductInOrder.scss'
 
 interface Props {
@@ -26,8 +28,8 @@ export const ProductInOrder = ({ data, onClick, icon }: Props) => {
             <Monitor />
          </div>
          <div className="product-in-order--title">
-            <h4>{title}</h4>
-            <h5>{serialNumber}</h5>
+            <h4 className=" mb-0 fs-6 fs-md-5">{title}</h4>
+            <h5 className="fs-6 fs-md-5 mb-0 opacity-50">{serialNumber}</h5>
          </div>
          <button className="product-in-order--remove" onClick={() => onClick(id)}>
             <Icon />

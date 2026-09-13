@@ -5,6 +5,7 @@ export interface CreateOrderDto {
 export interface OrderState {
    orderID: number | null
    orderName: string
+   isProductDropdownOpen: boolean
 }
 
 export interface DeleteOrderRequest {
