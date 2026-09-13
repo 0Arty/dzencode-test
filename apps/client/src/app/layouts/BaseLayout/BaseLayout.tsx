@@ -1,8 +1,7 @@
-import { Outlet } from 'react-router-dom'
-
 import { Header } from '@widgets/Header'
 import { NavigationMenu } from '@widgets/NavigationMenu'
 import { OrderDetailsModal } from '@widgets/order-details/'
+import { PageTransition } from '@widgets/PageTransition'
 
 import { CreateOrderModal } from '@features/create-order/'
 import { CreateProductModal } from '@features/create-product'
@@ -24,8 +23,8 @@ export const BaseLayout = () => {
 
          <main className="app-wrapper">
             <NavigationMenu />
-            <div className="d-flex / py-5">
-               <Outlet />
+            <div className="d-flex flex-column py-5">
+               <PageTransition />
             </div>
          </main>
       </>
