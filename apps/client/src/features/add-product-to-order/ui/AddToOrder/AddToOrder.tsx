@@ -33,7 +33,7 @@ export const AddToOrder = ({ orderID }: Props) => {
    return (
       <div className="add-to-order">
          <StrokedButton onClick={openDropdownHandler} className="add-to-order--button">
-            {isDropdownOpen ? 'Close' : 'Add to order'}
+            {isDropdownOpen ? 'Close' : 'Add product'}
          </StrokedButton>
 
          <Dropdown isOpen={isDropdownOpen}>
@@ -42,6 +42,12 @@ export const AddToOrder = ({ orderID }: Props) => {
             {data?.items.map(product => (
                <ProductInOrder data={product} key={product.id} onClick={addToOrderHandler} icon="add" />
             ))}
+
+            {data?.items.length === 0 && (
+               <div className="p-2">
+                  <h4>No products without an order</h4>
+               </div>
+            )}
          </Dropdown>
       </div>
    )

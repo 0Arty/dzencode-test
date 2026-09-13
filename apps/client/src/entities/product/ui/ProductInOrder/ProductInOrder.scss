@@ -31,20 +31,6 @@
       }
    }
 
-   &--title {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-
-      @include mobile {
-         grid-column: span 2;
-      }
-
-      .product-name {
-         font-size: rem(18);
-      }
-   }
-
    &--remove {
       display: flex;
       flex-direction: column;
@@ -68,6 +54,39 @@
       svg {
          width: 100%;
          color: inherit;
+      }
+   }
+
+   .product--details {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr auto;
+
+      @include mobile {
+         display: flex;
+         flex-direction: column;
+         grid-column: span 2;
+      }
+
+      &--title {
+         display: flex;
+         flex-direction: column;
+         gap: 0.25rem;
+
+         .product-name {
+            font-size: rem(18);
+         }
+      }
+
+      &--prices {
+         display: flex;
+         flex-direction: column;
+         gap: 0.125rem;
+
+         @include mobile {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+         }
       }
    }
 }

@@ -1,0 +1,11 @@
+.order-details {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+
+   &--products-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+   }
+}

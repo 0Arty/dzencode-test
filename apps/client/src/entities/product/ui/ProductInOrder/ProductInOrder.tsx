@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const ProductInOrder = ({ data, onClick, icon }: Props) => {
-   const { title, id, serialNumber } = data
+   const { title, id, serialNumber, prices } = data
 
    const Icons = {
       delete: Trash,
@@ -27,10 +27,24 @@ export const ProductInOrder = ({ data, onClick, icon }: Props) => {
          <div className="product-in-order--image">
             <Monitor />
          </div>
-         <div className="product-in-order--title">
-            <h4 className=" mb-0 fs-6 fs-md-5">{title}</h4>
-            <h5 className="fs-6 fs-md-5 mb-0 opacity-50">{serialNumber}</h5>
+
+         <div className="product--details">
+            <div className="product--details--title">
+               <h4 className=" mb-0 fs-6 fs-md-5">{title}</h4>
+               <h5 className="fs-6 fs-md-5 mb-0 opacity-50">{serialNumber}</h5>
+            </div>
+
+            <div className="product--details--prices">
+               {prices.map(price => {
+                  return (
+                     <div key={price.id}>
+                        <span className="opacity-75">{price.symbol}: </span> <b>{price.value}</b>
+                     </div>
+                  )
+               })}
+            </div>
          </div>
+
          <button className="product-in-order--remove" onClick={() => onClick(id)}>
             <Icon />
          </button>

@@ -56,7 +56,7 @@ export class OrdersService {
          throw new NotFoundException('Order not found')
       }
 
-      return order
+      return this.toListItem(order)
    }
 
    async remove(id: number) {
