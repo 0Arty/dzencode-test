@@ -70,18 +70,10 @@ export const ProductCard = ({ data }: Props) => {
          </div>
 
          <div className="product-card--order ">
-            {order?.title && (
-               <h6>
-                  <span className="opacity-75">Order: </span>
-                  <b>{order.title}</b>
-               </h6>
-            )}
-
-            {!order?.title && (
-               <h6>
-                  <span className="opacity-75">- </span>
-               </h6>
-            )}
+            <h6>
+               <span className="opacity-75">Order: </span>
+               <b>{order?.title ? order.title : '-'}</b>
+            </h6>
          </div>
 
          <div className="product-card--date ">
