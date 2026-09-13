@@ -1,6 +1,9 @@
 import { type ReactNode } from 'react'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { MutationCache, QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { toast } from 'react-toastify'
+
+import { getErrorMessage } from '@shared/lib'
 
 const queryClient = new QueryClient({
    defaultOptions: {
@@ -11,8 +14,23 @@ const queryClient = new QueryClient({
          refetchOnWindowFocus: false,
       },
    },
+
+   queryCache: new QueryCache({
+      onError: error => {
+         toast.error(getErrorMessage(error))
+      },
+   }),
+   mutationCache: new MutationCache({
+      onError: error => {
+         toast.error(getErrorMessage(error))
+      },
+   }),
 })
 
-export const QueryProvider = ({ children }: { children: ReactNode }) => {
+interface Props {
+   children: ReactNode
+}
+
+export const QueryProvider = ({ children }: Props) => {
    return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 }
