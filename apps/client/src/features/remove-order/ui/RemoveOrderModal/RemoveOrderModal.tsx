@@ -22,7 +22,7 @@ export const RemoveOrderModal = () => {
       dispatch(deleteOrderCancelled())
    }
 
-   const { mutate: removeOrder, isPending, isError, error } = useRemoveOrder()
+   const { mutate: removeOrder, isPending } = useRemoveOrder()
 
    const removeOrderHandler = () => {
       if (orderId) {
@@ -30,10 +30,6 @@ export const RemoveOrderModal = () => {
             onSuccess: closeModalHandler,
          })
       }
-   }
-
-   if (isError) {
-      console.error(error.message)
    }
 
    return (

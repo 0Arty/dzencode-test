@@ -1,5 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
+import { PRODUCT_WITHOUT_ORDER_QUERY_KEY } from '@entities/product'
+
 import { ORDER_DETAIL_QUERY_KEY, ORDER_QUERY_KEY } from '../model/queryKeys'
 import type { CreateOrderDto } from '../model/types'
 
@@ -38,8 +40,17 @@ export const useCreateOrder = () => {
 
 export const useRemoveOrder = () => {
    const queryClient = useQueryClient()
+
    return useMutation({
       mutationFn: (id: number) => orderApi.remove(id),
-      onSuccess: () => queryClient.invalidateQueries({ queryKey: [ORDER_QUERY_KEY] }),
+
+      onSuccess: async (_, id) => {
+         queryClient.removeQueries({ queryKey: ORDER_DETAIL_QUERY_KEY(id) })
+
+         await Promise.all([
+            queryClient.invalidateQueries({ queryKey: PRODUCT_WITHOUT_ORDER_QUERY_KEY }),
+            queryClient.invalidateQueries({ queryKey: [ORDER_QUERY_KEY] }),
+         ])
+      },
    })
 }

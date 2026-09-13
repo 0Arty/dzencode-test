@@ -9,7 +9,7 @@ export {
    setOrderId,
    toggleProductsDropdown,
 } from './model/orderSlice'
-export { ORDER_QUERY_KEY } from './model/queryKeys'
+export { ORDER_DETAIL_QUERY_KEY, ORDER_QUERY_KEY } from './model/queryKeys'
 export type { CreateOrderDto, DeleteOrderRequest } from './model/types'
 export { OrderCard } from './ui/OrderCard/'
 export { OrdersList } from './ui/OrdersList'

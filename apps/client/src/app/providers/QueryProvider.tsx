@@ -10,7 +10,11 @@ const queryClient = new QueryClient({
       queries: {
          staleTime: 60 * 1000,
          gcTime: 10 * 60 * 1000,
-         retry: 2,
+         retry: (failureCount, error) => {
+            const status = (error as any)?.response?.status
+            if (status === 404) return false
+            return failureCount < 2
+         },
          refetchOnWindowFocus: false,
       },
    },
