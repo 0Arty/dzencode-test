@@ -1,11 +1,11 @@
-FROM node:20-alpine
+FROM node:20-slim
 
 WORKDIR /app
 
 COPY package*.json ./
 COPY apps/client/package*.json ./apps/client/
 
-RUN npm ci -w apps/client
+RUN npm install -w apps/client
 
 COPY apps/client ./apps/client
 

@@ -1,52 +1,71 @@
-# test
+# Test task Front-end dev
 
-Монорепозиторій: `apps/server` (NestJS), `apps/client` (Vite)
+Monorepo with a client (React + Vite) and server (NestJS) part, using PostgreSQL as the database.
 
-## 1. Встановити залежності
+Stack:
 
-```bash
-npm install
+- server : Nest.js, typeOrm, postgreSQL
+- client : React 19, Vite, TypeScript, Redux tool-kit, Axios, React Hook Form + Zod, React Query (TanStack Query), Bootstrap, GSAP, Socket.io, SASS, linters...
+
+## Local development
+
+Install dependecies
+
+```
+npm i
 ```
 
-## 2. Запуск через Docker (рекомендовано)
+Start the database
 
-```bash
-docker compose up --build
+```
+docker compose up -d postgres
 ```
 
-Піднімає одразу: Postgres, сервер і клієнт.
+Run client and server in dev mode
+
+```
+npm run dev
+```
+
+The client will be available at http://localhost:5173,
+the server at http://localhost:8000
+
+## Running with Docker
+
+Spins up the database, server, and client fully containerized:
+
+```
+docker compose up -build
+```
+
+Once started:
 
 - Client: http://localhost:5173
-- Server (API): http://localhost:8000
+- Server: http://localhost:8000
+- PostgreSQL: localhost:5432
 
-## 3. Локальний запуск (без Docker)
-
-### Сервер (NestJS)
-
-```bash
-npm run dev:server
-```
-
-### Клієнт (Vite)
-
-```bash
-npm run dev:client
-```
-
-> Для локального запуску потрібен також запущений Postgres (наприклад, `docker compose up postgres`) та заповнений `.env` у корені репозиторію.
-
-## Доступні ресурси
-
-| Сервіс              | URL                   |
-| ------------------- | --------------------- |
-| Client (Vite)       | http://localhost:5173 |
-| Server (NestJS API) | http://localhost:8000 |
-
-## Структура
+To run in detached mode, add the -d flag:
 
 ```
-apps/
-  server/   — NestJS API
-  client/   — Vite frontend
+docker compose up --build -d
+```
+
+To stop and remove containers:
 
 ```
+docker compose down
+```
+
+To stop containers and also remove database data (full cleanup):
+
+```
+docker compose down -v
+```
+
+Project structure
+.
+├── apps/
+│ ├── client/ # React
+│ └── server/ # NestJS
+├── docker-compose.yml
+└── .env
