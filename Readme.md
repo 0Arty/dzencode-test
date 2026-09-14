@@ -63,9 +63,13 @@ docker compose down -v
 ```
 
 Project structure
+
+```
 .
 ├── apps/
 │ ├── client/ # React
 │ └── server/ # NestJS
 ├── docker-compose.yml
 └── .env
+
+```
