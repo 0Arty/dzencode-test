@@ -9,9 +9,9 @@ build
 **/build
 
 # Env files
-.env
-.env.local
-apps/**/.env
+# .env
+# .env.local
+# apps/**/.env
 
 # Logs
 *.log

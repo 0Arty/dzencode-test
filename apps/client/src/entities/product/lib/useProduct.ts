@@ -82,7 +82,10 @@ export const useRemoveProduct = () => {
       mutationFn: (id: number) => productApi.remove(id),
       onSuccess: async (_, id) => {
          queryClient.removeQueries({ queryKey: ORDER_DETAIL_QUERY_KEY(id) })
-         await Promise.all([queryClient.invalidateQueries({ queryKey: [PRODUCT_QUERY_KEY] })])
+         await Promise.all([
+            queryClient.invalidateQueries({ queryKey: [PRODUCT_QUERY_KEY] }),
+            queryClient.invalidateQueries({ queryKey: [ORDER_QUERY_KEY] }),
+         ])
       },
    })
 }
